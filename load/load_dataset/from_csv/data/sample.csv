@@ -1,0 +1,4 @@
+id,title,priority
+1,learn load_dataset from csv,high
+2,understand inferred columns,medium
+3,keep examples local and minimal,high

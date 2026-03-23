@@ -1,0 +1,3 @@
+{"id": 1, "sentence": "load_dataset can read local JSON Lines files", "label": "intro"}
+{"id": 2, "sentence": "JSON Lines means one JSON object per line", "label": "format"}
+{"id": 3, "sentence": "datasets infers a schema from the data", "label": "schema"}
