@@ -1,0 +1,2 @@
+{"id": 1, "text": "parallel loading can consume multiple files", "source": "part-1"}
+{"id": 2, "text": "each file can contribute rows to one split", "source": "part-1"}

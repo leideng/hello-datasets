@@ -1,0 +1,4 @@
+id,message,kind
+1,file-url loading still uses a URL,offline
+2,this keeps the example runnable without network,teaching
+3,remote urls work the same pattern with internet,comparison
