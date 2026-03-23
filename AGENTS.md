@@ -10,10 +10,15 @@ The goal is not to build one large package. The goal is to collect small, focuse
 - Each top-level feature directory should demonstrate exactly one main idea.
 - Keep examples easy to read, easy to run, and easy to delete or replace.
 - Prefer practical examples over abstract helper layers.
+- Largely follow the existing topic tree already present in the repository.
 
 ## Required structure
 
-Each feature lives in its own top-level subfolder.
+The repository already contains a topic taxonomy such as `load/`, `process/`, `export/`, `config/`, `stream/`, and related nested subfolders.
+
+Prefer placing new work into the existing topic tree instead of inventing a parallel structure. You may refine or extend the structure when necessary, but do so deliberately and keep names consistent with the current layout.
+
+Each concrete example should live in the most relevant existing topic subfolder.
 
 Example:
 
@@ -22,14 +27,16 @@ hello-datasets/
   AGENTS.md
   README.md
   pyproject.toml
-  load-local-json/
-    src/
-      main.py
-    docs/
-      README.md
+  load/
+    load_dataset/
+      from_json/
+        src/
+          main.py
+        docs/
+          README.md
 ```
 
-For every feature subfolder:
+For every concrete example folder:
 
 - `src/` contains the Python source code.
 - `docs/` contains:
@@ -49,13 +56,13 @@ For every feature subfolder:
 
 ## What belongs in a feature folder
 
-A good feature folder usually includes:
+A good concrete example folder usually includes:
 
 - `src/`
 - `docs/`
 - optional small local data files only if they are necessary for the example
 
-A feature folder should not depend on hidden setup in another example folder.
+A concrete example folder should not depend on hidden setup in another example folder.
 
 ## Coding rules
 
@@ -81,37 +88,40 @@ Documentation should teach, not just list commands.
 
 ## Scope rules
 
-- One folder, one main lesson.
-- If a new example teaches a different concept, create a new top-level folder instead of extending an existing one.
+- One concrete example folder, one main lesson.
+- If a new example teaches a different concept, first check whether it fits naturally into the existing topic tree.
+- Only create a new top-level topic when the current tree does not provide a clean home for the concept.
 - Keep examples independent even if that causes a small amount of duplication.
 - Do not turn this repo into a monolithic application or shared library.
 
 ## Naming guidance
 
-- Use short, descriptive kebab-case names for feature folders.
-- Name folders by the learning topic or workflow, such as:
-  - `load-csv`
-  - `map-and-filter`
-  - `train-test-split`
-  - `streaming-dataset`
-  - `save-to-disk`
+- Preserve the current semantic grouping used by directories such as `load/load_dataset/from_json` or `process/format/tensor_format/torch`.
+- Use short, descriptive snake_case or existing-style names that match nearby folders.
+- Prefer consistency with sibling directories over introducing a new naming style.
 
 ## Preferred workflow for future changes
 
 When adding a new example:
 
-1. Create a new top-level feature folder.
-2. Use the root `pyproject.toml` managed with `uv` for dependencies.
-3. Put runnable Python code in `src/`.
-4. Write learning-oriented documentation in `docs/`.
-5. Keep the example independent from other folders.
-6. Verify the documented commands are correct.
+1. Read the current topic tree in `README.md` first.
+2. Choose the most relevant existing topic path.
+3. Use the root `pyproject.toml` managed with `uv` for dependencies.
+4. Put runnable Python code in `src/`.
+5. Write learning-oriented documentation in `docs/`.
+6. Keep the example independent from other folders.
+7. Verify the documented commands are correct.
 
 When modifying an existing example:
 
 - Preserve the folder's single teaching goal.
 - Do not add unrelated capabilities.
 - Update docs together with code changes.
+
+Before writing new code:
+
+- Update `README.md` if the topic tree changes.
+- Keep the recursive topic list in `README.md` complete and current.
 
 ## Non-goals
 
@@ -125,8 +135,10 @@ When modifying an existing example:
 If you are an automated coding agent working in this repo:
 
 - Follow the structure and scope rules in this file.
+- Read the existing directory tree before proposing a new location.
 - Default to creating small, focused, standalone examples.
 - Use `uv` for dependency and run instructions.
 - If adding a new example, include both `src/` and `docs/`.
+- Update `README.md` first when introducing or changing topic paths.
 - If adding code, also add or update the corresponding documentation.
 - Prefer the simplest implementation that accurately demonstrates the `datasets` feature.
