@@ -21,8 +21,8 @@ Example:
 hello-datasets/
   AGENTS.md
   README.md
+  pyproject.toml
   load-local-json/
-    pyproject.toml
     src/
       main.py
     docs/
@@ -41,8 +41,9 @@ For every feature subfolder:
 ## Dependency management
 
 - Use `uv` to manage Python dependencies.
-- Prefer a per-feature `pyproject.toml` when that keeps the example self-contained.
-- Do not introduce a heavy shared dependency layout unless the user explicitly asks for one.
+- Manage dependencies globally from the repository root.
+- Keep a single `pyproject.toml` in the root directory.
+- Do not create `pyproject.toml` files inside feature subfolders.
 - Keep dependencies minimal. Only add packages required for that specific example.
 - Prefer `uv run` for execution in docs and examples.
 
@@ -50,7 +51,6 @@ For every feature subfolder:
 
 A good feature folder usually includes:
 
-- `pyproject.toml`
 - `src/`
 - `docs/`
 - optional small local data files only if they are necessary for the example
@@ -101,7 +101,7 @@ Documentation should teach, not just list commands.
 When adding a new example:
 
 1. Create a new top-level feature folder.
-2. Add a minimal `pyproject.toml` managed with `uv`.
+2. Use the root `pyproject.toml` managed with `uv` for dependencies.
 3. Put runnable Python code in `src/`.
 4. Write learning-oriented documentation in `docs/`.
 5. Keep the example independent from other folders.
