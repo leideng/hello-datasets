@@ -2,7 +2,7 @@
 
 Learning repository for efficient, example-driven use of Hugging Face `datasets`.
 
-This repo uses a single root `pyproject.toml` managed by `uv`. Each topic folder is intended to stay minimal and self-contained, with runnable code under `src/` and learning-oriented notes under `docs/`.
+This repo uses a single root `pyproject.toml` managed by `uv`. Each topic folder is intended to stay minimal and self-contained, with runnable code and its learning-oriented `README.md` placed directly in the example root. Local sample data stays in `data/` when needed.
 
 ## Topic Tree
 
@@ -90,9 +90,10 @@ hello-datasets/
 - New work should largely follow the existing topic tree above.
 - It is acceptable to refine or extend the tree when a topic boundary is unclear.
 - Each concrete example should live in the relevant topic folder and should eventually include:
-  - `src/` for runnable Python code
-  - `docs/` for how to run it and what it teaches
+  - `main.py` or another small root-level Python file
+  - a root-level `README.md` for how to run it and what it teaches
+  - optional `data/` for local sample inputs or test data
 
 ## Run
 
-Once examples are added, prefer `uv run` from the repository root with explicit module or script paths documented in each example's `docs/README.md`.
+Once examples are added, prefer `uv run` from the repository root with explicit module or script paths documented in each example's `README.md`.
