@@ -1,0 +1,503 @@
+title: Hello Datasets
+description: Beginner-first Hugging Face datasets learning workspace and automation curriculum
+
+topics:
+  - order: 1
+    slug: 01-config
+    title: Config
+    path: config
+    status: planned
+    projects:
+      - order: 1
+        slug: 01-get-dataset-config-names
+        title: Get Dataset Config Names
+        path: config/get_dataset_config_names
+        readme: config/get_dataset_config_names/README.md
+        entry: config/get_dataset_config_names/main.py
+        status: planned
+        main_idea: Discover the available configuration names for a dataset before loading a specific config.
+        summary: Learn how to inspect dataset configuration options so later loading examples can choose the right config explicitly.
+
+  - order: 2
+    slug: 02-create
+    title: Create
+    path: create
+    status: planned
+    projects: []
+
+  - order: 3
+    slug: 03-export
+    title: Export
+    path: export
+    status: planned
+    projects:
+      - order: 1
+        slug: 01-to-csv
+        title: Export to CSV
+        path: export/to_csv
+        readme: export/to_csv/README.md
+        entry: export/to_csv/main.py
+        status: planned
+        main_idea: Save a dataset to CSV so processed tabular data can be shared with common tools.
+        summary: Learn how to write a dataset to CSV and inspect the exported file layout.
+      - order: 2
+        slug: 02-to-json
+        title: Export to JSON
+        path: export/to_json
+        readme: export/to_json/README.md
+        entry: export/to_json/main.py
+        status: planned
+        main_idea: Save a dataset to JSON so records can be exchanged with simple text-based workflows.
+        summary: Learn how to export dataset rows as JSON and understand the resulting file structure.
+      - order: 3
+        slug: 03-to-parquet
+        title: Export to Parquet
+        path: export/to_parquet
+        readme: export/to_parquet/README.md
+        entry: export/to_parquet/main.py
+        status: planned
+        main_idea: Save a dataset to Parquet for efficient columnar storage and downstream analytics.
+        summary: Learn how to export datasets to Parquet and when columnar output is a good fit.
+      - order: 4
+        slug: 04-to-sql
+        title: Export to SQL
+        path: export/to_sql
+        readme: export/to_sql/README.md
+        entry: export/to_sql/main.py
+        status: planned
+        main_idea: Write dataset rows into a SQL database so they can be queried later.
+        summary: Learn how to move a dataset into SQL storage for query-driven workflows.
+
+  - order: 4
+    slug: 04-load
+    title: Load
+    path: load
+    status: mixed
+    projects:
+      - order: 1
+        slug: 01-from-dict
+        title: From Dict
+        path: load/from_in_memory_data/from_dict
+        readme: load/from_in_memory_data/from_dict/README.md
+        entry: load/from_in_memory_data/from_dict/main.py
+        status: ready
+        main_idea: Create a dataset directly from a Python dictionary of columns.
+        summary: Learn the simplest column-oriented in-memory entry point for building a Hugging Face dataset.
+      - order: 2
+        slug: 02-from-generator
+        title: From Generator
+        path: load/from_in_memory_data/from_generator
+        readme: load/from_in_memory_data/from_generator/README.md
+        entry: load/from_in_memory_data/from_generator/main.py
+        status: ready
+        main_idea: Build a dataset from a Python generator that yields rows lazily.
+        summary: Learn how generator-based loading works when records are produced by code instead of a file.
+      - order: 3
+        slug: 03-from-list
+        title: From List
+        path: load/from_in_memory_data/from_list
+        readme: load/from_in_memory_data/from_list/README.md
+        entry: load/from_in_memory_data/from_list/main.py
+        status: ready
+        main_idea: Create a dataset from a row-oriented Python list of dictionaries.
+        summary: Learn a beginner-friendly way to turn small Python records into a dataset.
+      - order: 4
+        slug: 04-from-pandas
+        title: From Pandas
+        path: load/from_in_memory_data/from_pandas
+        readme: load/from_in_memory_data/from_pandas/README.md
+        entry: load/from_in_memory_data/from_pandas/main.py
+        status: ready
+        main_idea: Convert a Pandas DataFrame into a Hugging Face dataset.
+        summary: Learn how tabular data in pandas becomes a dataset you can process with the datasets library.
+      - order: 5
+        slug: 05-from-sql
+        title: From SQL
+        path: load/from_sql
+        readme: load/from_sql/README.md
+        entry: load/from_sql/main.py
+        status: ready
+        main_idea: Load query results from SQL with Dataset.from_sql.
+        summary: Learn how SQL can filter or reshape data before it enters a Hugging Face dataset.
+      - order: 6
+        slug: 06-load-dataset-from-arrow
+        title: Load Dataset From Arrow
+        path: load/load_dataset/from_arrow
+        readme: load/load_dataset/from_arrow/README.md
+        entry: load/load_dataset/from_arrow/main.py
+        status: ready
+        main_idea: Load a local Arrow file with the built-in arrow loader.
+        summary: Learn how load_dataset reads Apache Arrow files into a DatasetDict.
+      - order: 7
+        slug: 07-load-dataset-from-csv
+        title: Load Dataset From CSV
+        path: load/load_dataset/from_csv
+        readme: load/load_dataset/from_csv/README.md
+        entry: load/load_dataset/from_csv/main.py
+        status: ready
+        main_idea: Load a local CSV file with the built-in csv loader.
+        summary: Learn the standard file-based entry point for delimited tabular data.
+      - order: 8
+        slug: 08-load-dataset-from-hdf5
+        title: Load Dataset From HDF5
+        path: load/load_dataset/from_hdf5
+        readme: load/load_dataset/from_hdf5/README.md
+        entry: load/load_dataset/from_hdf5/main.py
+        status: ready
+        main_idea: Load a local HDF5 file with the built-in hdf5 loader.
+        summary: Learn how hierarchical binary data can be read through load_dataset.
+      - order: 9
+        slug: 09-load-dataset-from-hfhub
+        title: Load Dataset From Hugging Face Hub
+        path: load/load_dataset/from_hfhub
+        readme: load/load_dataset/from_hfhub/README.md
+        entry: load/load_dataset/from_hfhub/main.py
+        status: ready
+        main_idea: Load a public dataset directly from Hugging Face Hub.
+        summary: Learn the standard remote-loading workflow for hosted datasets.
+      - order: 10
+        slug: 10-load-dataset-from-json
+        title: Load Dataset From JSON
+        path: load/load_dataset/from_json
+        readme: load/load_dataset/from_json/README.md
+        entry: load/load_dataset/from_json/main.py
+        status: ready
+        main_idea: Load a local JSON Lines file with the built-in json loader.
+        summary: Learn how line-oriented JSON files are read into a DatasetDict.
+      - order: 11
+        slug: 11-load-dataset-from-lance
+        title: Load Dataset From Lance
+        path: load/load_dataset/from_lance
+        readme: load/load_dataset/from_lance/README.md
+        entry: load/load_dataset/from_lance/main.py
+        status: planned
+        main_idea: Load a Lance dataset through the load_dataset workflow.
+        summary: Learn how a vector-friendly storage format can fit into a datasets loading pipeline.
+      - order: 12
+        slug: 12-load-dataset-from-parquet
+        title: Load Dataset From Parquet
+        path: load/load_dataset/from_parquet
+        readme: load/load_dataset/from_parquet/README.md
+        entry: load/load_dataset/from_parquet/main.py
+        status: ready
+        main_idea: Load a local Parquet file with the built-in parquet loader.
+        summary: Learn how columnar storage maps into the datasets loading API.
+      - order: 13
+        slug: 13-load-dataset-from-url
+        title: Load Dataset From URL
+        path: load/load_dataset/from_url
+        readme: load/load_dataset/from_url/README.md
+        entry: load/load_dataset/from_url/main.py
+        status: ready
+        main_idea: Load a dataset from a URL using load_dataset.
+        summary: Learn how datasets can fetch remote files instead of reading only local paths.
+      - order: 14
+        slug: 14-load-dataset-from-webdataset
+        title: Load Dataset From WebDataset
+        path: load/load_dataset/from_webdataset
+        readme: load/load_dataset/from_webdataset/README.md
+        entry: load/load_dataset/from_webdataset/main.py
+        status: ready
+        main_idea: Load a WebDataset tar shard with the built-in webdataset loader.
+        summary: Learn how shard-based tar archives can be read through the datasets library.
+      - order: 15
+        slug: 15-load-with-multi-process
+        title: Load With Multi Process
+        path: load/multi_process
+        readme: load/multi_process/README.md
+        entry: load/multi_process/main.py
+        status: ready
+        main_idea: Use num_proc to load local files with multiple worker processes.
+        summary: Learn the basic parallel-loading pattern for file-based dataset ingestion.
+
+  - order: 5
+    slug: 05-preprocess
+    title: Preprocess
+    path: preprocess
+    status: planned
+    projects: []
+
+  - order: 6
+    slug: 06-process
+    title: Process
+    path: process
+    status: ready
+    projects:
+      - order: 1
+        slug: 01-batch
+        title: Batch Iteration
+        path: process/batch
+        readme: process/batch/README.md
+        entry: process/batch/main.py
+        status: ready
+        main_idea: Iterate over dataset rows in batches with Dataset.iter.
+        summary: Learn how to read a dataset in grouped chunks instead of one row at a time.
+      - order: 2
+        slug: 02-cast
+        title: Cast Features
+        path: process/cast
+        readme: process/cast/README.md
+        entry: process/cast/main.py
+        status: ready
+        main_idea: Change the declared feature schema with cast.
+        summary: Learn how to make the dataset schema explicit and update column types safely.
+      - order: 3
+        slug: 03-concatenate
+        title: Concatenate Datasets
+        path: process/concatenate
+        readme: process/concatenate/README.md
+        entry: process/concatenate/main.py
+        status: ready
+        main_idea: Combine multiple datasets with concatenate_datasets.
+        summary: Learn how compatible datasets can be merged into one longer dataset.
+      - order: 4
+        slug: 04-filter
+        title: Filter Rows
+        path: process/filter
+        readme: process/filter/README.md
+        entry: process/filter/main.py
+        status: ready
+        main_idea: Keep only rows that satisfy a predicate with Dataset.filter.
+        summary: Learn the basic row-selection workflow for cleanup and curation.
+      - order: 5
+        slug: 05-flatten
+        title: Flatten Nested Columns
+        path: process/flatten
+        readme: process/flatten/README.md
+        entry: process/flatten/main.py
+        status: ready
+        main_idea: Expand nested struct columns into top-level fields with Dataset.flatten.
+        summary: Learn how to simplify nested records before downstream processing.
+      - order: 6
+        slug: 06-custom-format
+        title: Custom Format Transform
+        path: process/format/custom_format
+        readme: process/format/custom_format/README.md
+        entry: process/format/custom_format/main.py
+        status: ready
+        main_idea: Apply a custom retrieval-time transform with with_transform.
+        summary: Learn how to change items at access time without rewriting the stored dataset.
+      - order: 7
+        slug: 07-tabular-format-arrow
+        title: Tabular Format Arrow
+        path: process/format/tabular_format/arrow
+        readme: process/format/tabular_format/arrow/README.md
+        entry: process/format/tabular_format/arrow/main.py
+        status: ready
+        main_idea: Inspect the dataset's Arrow table representation.
+        summary: Learn how datasets use Arrow under the hood and how to view the table form directly.
+      - order: 8
+        slug: 08-tabular-format-pandas
+        title: Tabular Format Pandas
+        path: process/format/tabular_format/pandas
+        readme: process/format/tabular_format/pandas/README.md
+        entry: process/format/tabular_format/pandas/main.py
+        status: ready
+        main_idea: Convert a dataset to a Pandas DataFrame with to_pandas.
+        summary: Learn how to move dataset rows into pandas for familiar tabular analysis.
+      - order: 9
+        slug: 09-tabular-format-polars
+        title: Tabular Format Polars
+        path: process/format/tabular_format/polars
+        readme: process/format/tabular_format/polars/README.md
+        entry: process/format/tabular_format/polars/main.py
+        status: ready
+        main_idea: Convert a dataset into a Polars DataFrame through Arrow.
+        summary: Learn how to bridge datasets into Polars for fast DataFrame workflows.
+      - order: 10
+        slug: 10-tensor-format-jax
+        title: Tensor Format JAX
+        path: process/format/tensor_format/jax
+        readme: process/format/tensor_format/jax/README.md
+        entry: process/format/tensor_format/jax/main.py
+        status: ready
+        main_idea: Retrieve rows as JAX arrays with with_format("jax").
+        summary: Learn how output formatting changes item types for JAX-based workflows.
+      - order: 11
+        slug: 11-tensor-format-numpy
+        title: Tensor Format NumPy
+        path: process/format/tensor_format/numpy
+        readme: process/format/tensor_format/numpy/README.md
+        entry: process/format/tensor_format/numpy/main.py
+        status: ready
+        main_idea: Retrieve rows as NumPy arrays with with_format("numpy").
+        summary: Learn how datasets can return NumPy arrays directly at read time.
+      - order: 12
+        slug: 12-tensor-format-tensorflow
+        title: Tensor Format TensorFlow
+        path: process/format/tensor_format/tensorflow
+        readme: process/format/tensor_format/tensorflow/README.md
+        entry: process/format/tensor_format/tensorflow/main.py
+        status: ready
+        main_idea: Retrieve rows as TensorFlow tensors with with_format("tensorflow").
+        summary: Learn how datasets can present examples in TensorFlow-friendly tensor form.
+      - order: 13
+        slug: 13-tensor-format-torch
+        title: Tensor Format Torch
+        path: process/format/tensor_format/torch
+        readme: process/format/tensor_format/torch/README.md
+        entry: process/format/tensor_format/torch/main.py
+        status: ready
+        main_idea: Retrieve rows as PyTorch tensors with with_format("torch").
+        summary: Learn how datasets can present examples in PyTorch-ready tensor form.
+      - order: 14
+        slug: 14-interleave
+        title: Interleave Datasets
+        path: process/interleave
+        readme: process/interleave/README.md
+        entry: process/interleave/main.py
+        status: ready
+        main_idea: Mix rows from multiple datasets with interleave_datasets.
+        summary: Learn how to alternate records from multiple sources in one combined dataset.
+      - order: 15
+        slug: 15-map-async-process
+        title: Map Async Process
+        path: process/map/async_process
+        readme: process/map/async_process/README.md
+        entry: process/map/async_process/main.py
+        status: ready
+        main_idea: Use an async mapping function with Dataset.map.
+        summary: Learn how asynchronous preprocessing logic can fit into a map-based workflow.
+      - order: 16
+        slug: 16-map-batch-process
+        title: Map Batch Process
+        path: process/map/batch_process
+        readme: process/map/batch_process/README.md
+        entry: process/map/batch_process/main.py
+        status: ready
+        main_idea: Apply a batched transformation with Dataset.map and batched=True.
+        summary: Learn how to transform groups of rows at once for more efficient preprocessing.
+      - order: 17
+        slug: 17-map-data-augmentation
+        title: Map Data Augmentation
+        path: process/map/data_augmentation
+        readme: process/map/data_augmentation/README.md
+        entry: process/map/data_augmentation/main.py
+        status: ready
+        main_idea: Expand a dataset with augmented examples using map.
+        summary: Learn how one input row can produce richer training data through augmentation.
+      - order: 18
+        slug: 18-map-distributed-usage
+        title: Map Distributed Usage
+        path: process/map/distributed_usage
+        readme: process/map/distributed_usage/README.md
+        entry: process/map/distributed_usage/main.py
+        status: ready
+        main_idea: Combine sharding and map as a simple distributed preprocessing pattern.
+        summary: Learn a basic strategy for splitting preprocessing work across workers or machines.
+      - order: 19
+        slug: 19-map-multi-process
+        title: Map Multi Process
+        path: process/map/multi_process
+        readme: process/map/multi_process/README.md
+        entry: process/map/multi_process/main.py
+        status: ready
+        main_idea: Use num_proc with map for process-based parallel preprocessing.
+        summary: Learn how to speed up map operations with multiple worker processes.
+      - order: 20
+        slug: 20-map-multi-split-process
+        title: Map Multi Split Process
+        path: process/map/multi_split_process
+        readme: process/map/multi_split_process/README.md
+        entry: process/map/multi_split_process/main.py
+        status: ready
+        main_idea: Apply one map function across all splits in a DatasetDict.
+        summary: Learn how to transform train and eval splits together with one consistent operation.
+      - order: 21
+        slug: 21-remove-columns
+        title: Remove Columns
+        path: process/remove
+        readme: process/remove/README.md
+        entry: process/remove/main.py
+        status: ready
+        main_idea: Drop unneeded columns with remove_columns.
+        summary: Learn how to slim a dataset down to only the fields needed downstream.
+      - order: 22
+        slug: 22-rename-column
+        title: Rename Column
+        path: process/rename
+        readme: process/rename/README.md
+        entry: process/rename/main.py
+        status: ready
+        main_idea: Rename a column with rename_column.
+        summary: Learn how to make dataset field names clearer or align them with downstream expectations.
+      - order: 23
+        slug: 23-select
+        title: Select Rows
+        path: process/select
+        readme: process/select/README.md
+        entry: process/select/main.py
+        status: ready
+        main_idea: Pick specific row indices with Dataset.select.
+        summary: Learn how to create focused subsets from known row positions.
+      - order: 24
+        slug: 24-shard
+        title: Shard Dataset
+        path: process/shard
+        readme: process/shard/README.md
+        entry: process/shard/main.py
+        status: ready
+        main_idea: Take one shard of a dataset with Dataset.shard.
+        summary: Learn how to split a dataset into deterministic pieces for parallel or staged work.
+      - order: 25
+        slug: 25-shuffle
+        title: Shuffle Dataset
+        path: process/shuffle
+        readme: process/shuffle/README.md
+        entry: process/shuffle/main.py
+        status: ready
+        main_idea: Randomize row order with Dataset.shuffle.
+        summary: Learn the standard row-order randomization step used before training.
+      - order: 26
+        slug: 26-sort
+        title: Sort Dataset
+        path: process/sort
+        readme: process/sort/README.md
+        entry: process/sort/main.py
+        status: ready
+        main_idea: Order rows by a column with Dataset.sort.
+        summary: Learn how to reorder a dataset deterministically by a chosen field.
+      - order: 27
+        slug: 27-split
+        title: Train Test Split
+        path: process/split
+        readme: process/split/README.md
+        entry: process/split/main.py
+        status: ready
+        main_idea: Create train and test subsets with train_test_split.
+        summary: Learn the basic workflow for partitioning one dataset into separate splits.
+
+  - order: 7
+    slug: 07-read
+    title: Read
+    path: read
+    status: planned
+    projects: []
+
+  - order: 8
+    slug: 08-share
+    title: Share
+    path: share
+    status: planned
+    projects: []
+
+  - order: 9
+    slug: 09-stream
+    title: Stream
+    path: stream
+    status: planned
+    projects: []
+
+  - order: 10
+    slug: 10-table
+    title: Table
+    path: table
+    status: planned
+    projects: []
+
+  - order: 11
+    slug: 11-tokenize
+    title: Tokenize
+    path: tokenize
+    status: planned
+    projects: []
