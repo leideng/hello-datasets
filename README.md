@@ -2,7 +2,7 @@
 
 Learning repository for efficient, example-driven use of Hugging Face `datasets`.
 
-This repo uses a single root `pyproject.toml` managed by `uv`. First-level curriculum sections from [topics.yaml](/home/leo/code/hello-datasets/topics.yaml) now live under `topics/` with slug-prefixed names such as `topics/01-get-started/` and `topics/08-dataset-repository/`. Concrete runnable examples remain minimal and self-contained, with code and learning-oriented `README.md` files placed directly in each example root. Local sample data stays in `data/` when needed.
+This repo uses a single root `pyproject.toml` managed by `uv`. The curriculum now follows the official Hugging Face `datasets` General usage guides, and each first-level curriculum section lives under `topics/` with a slugged name such as `topics/01-load/` or `topics/11-cli/`. Concrete runnable examples stay minimal and self-contained, with code and learning-oriented `README.md` files placed directly in each example root. Local sample data stays in `data/` when needed.
 
 ## Table of Contents
 
@@ -16,9 +16,9 @@ This repo uses a single root `pyproject.toml` managed by `uv`. First-level curri
 
 The repository root contains [topics.yaml](/home/leo/code/hello-datasets/topics.yaml), which is the machine-readable curriculum guide for later agent automation.
 
-- It is aligned to the official Hugging Face `datasets` docs index.
-- It currently tracks 10 top-level curriculum sections and 88 project entries.
-- The current top-level sections are: Get Started, Tutorials, General Usage, Audio, Vision, Text, Tabular, Dataset Repository, Conceptual Guides, Reference.
+- It is aligned to the official Hugging Face `datasets` General usage docs structure.
+- It currently tracks 11 top-level curriculum sections and 50 project entries.
+- The current top-level sections are: Load, Process, Stream, Use With PyTorch, Use With NumPy, Use With Pandas, Use With PyArrow, Cache Management, Cloud Storage, Search Index, CLI.
 - Existing examples are marked `ready`; planned curriculum placeholders are marked `planned`.
 
 ## Topic Tree
@@ -28,10 +28,6 @@ The current repository structure below is generated from the filesystem in tree-
 ```text
 .
 ├── config/
-│   ├── cache_management/
-│   │   └── .gitkeep
-│   ├── cli/
-│   │   └── .gitkeep
 │   ├── get_dataset_config_names/
 │   └── troubleshooting/
 │       └── .gitkeep
@@ -41,261 +37,185 @@ The current repository structure below is generated from the filesystem in tree-
 │   ├── to_json/
 │   ├── to_parquet/
 │   └── to_sql/
-├── load/
-│   ├── cloud_storage/
-│   │   └── .gitkeep
-│   ├── from_in_memory_data/
-│   │   ├── from_dict/
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── from_generator/
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── from_list/
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   └── from_pandas/
-│   │       ├── README.md
-│   │       └── main.py
-│   ├── from_sql/
-│   │   ├── data/
-│   │   │   └── sample.sqlite
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── load_dataset/
-│   │   ├── from_arrow/
-│   │   │   ├── data/
-│   │   │   │   └── sample.arrow
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── from_csv/
-│   │   │   ├── data/
-│   │   │   │   └── sample.csv
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── from_hdf5/
-│   │   │   ├── data/
-│   │   │   │   └── sample.h5
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── from_hfhub/
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── from_json/
-│   │   │   ├── data/
-│   │   │   │   └── sample.jsonl
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── from_lance/
-│   │   ├── from_parquet/
-│   │   │   ├── data/
-│   │   │   │   └── sample.parquet
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── from_url/
-│   │   │   ├── data/
-│   │   │   │   └── sample.csv
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   └── from_webdataset/
-│   │       ├── data/
-│   │       │   └── sample.tar
-│   │       ├── README.md
-│   │       └── main.py
-│   ├── multi_process/
-│   │   ├── data/
-│   │   │   ├── part-1.jsonl
-│   │   │   └── part-2.jsonl
-│   │   ├── README.md
-│   │   └── main.py
-│   └── overview/
-│       └── .gitkeep
 ├── preprocess/
-├── process/
-│   ├── batch/
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── cast/
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── concatenate/
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── filter/
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── flatten/
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── format/
-│   │   ├── custom_format/
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── tabular_format/
-│   │   │   ├── arrow/
-│   │   │   │   ├── README.md
-│   │   │   │   └── main.py
-│   │   │   ├── pandas/
-│   │   │   │   ├── README.md
-│   │   │   │   └── main.py
-│   │   │   ├── polars/
-│   │   │   │   ├── README.md
-│   │   │   │   └── main.py
-│   │   │   └── spark/
-│   │   │       └── .gitkeep
-│   │   └── tensor_format/
-│   │       ├── jax/
-│   │       │   ├── README.md
-│   │       │   └── main.py
-│   │       ├── numpy/
-│   │       │   ├── README.md
-│   │       │   └── main.py
-│   │       ├── tensorflow/
-│   │       │   ├── README.md
-│   │       │   └── main.py
-│   │       └── torch/
-│   │           ├── README.md
-│   │           └── main.py
-│   ├── interleave/
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── map/
-│   │   ├── async_process/
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── batch_process/
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── data_augmentation/
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── distributed_usage/
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   ├── multi_process/
-│   │   │   ├── README.md
-│   │   │   └── main.py
-│   │   └── multi_split_process/
-│   │       ├── README.md
-│   │       └── main.py
-│   ├── overview/
-│   │   └── .gitkeep
-│   ├── remove/
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── rename/
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── select/
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── shard/
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── shuffle/
-│   │   ├── README.md
-│   │   └── main.py
-│   ├── sort/
-│   │   ├── README.md
-│   │   └── main.py
-│   └── split/
-│       ├── README.md
-│       └── main.py
 ├── read/
-├── stream/
-│   └── overview/
-│       └── .gitkeep
-├── table/
-│   └── search_index/
-│       └── .gitkeep
 ├── tokenize/
 ├── topics/
-│   ├── 01-get-started/
-│   │   ├── installation/
-│   │   │   └── .gitkeep
-│   │   └── quickstart/
+│   ├── 01-load/
+│   │   ├── from_in_memory_data/
+│   │   │   ├── from_dict/
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── from_generator/
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── from_list/
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   └── from_pandas/
+│   │   │       ├── README.md
+│   │   │       └── main.py
+│   │   ├── from_sql/
+│   │   │   ├── data/
+│   │   │   │   └── sample.sqlite
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── load_dataset/
+│   │   │   ├── from_arrow/
+│   │   │   │   ├── data/
+│   │   │   │   │   └── sample.arrow
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── from_csv/
+│   │   │   │   ├── data/
+│   │   │   │   │   └── sample.csv
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── from_hdf5/
+│   │   │   │   ├── data/
+│   │   │   │   │   └── sample.h5
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── from_hfhub/
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── from_json/
+│   │   │   │   ├── data/
+│   │   │   │   │   └── sample.jsonl
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── from_lance/
+│   │   │   ├── from_parquet/
+│   │   │   │   ├── data/
+│   │   │   │   │   └── sample.parquet
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── from_url/
+│   │   │   │   ├── data/
+│   │   │   │   │   └── sample.csv
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   └── from_webdataset/
+│   │   │       ├── data/
+│   │   │       │   └── sample.tar
+│   │   │       ├── README.md
+│   │   │       └── main.py
+│   │   ├── multi_process/
+│   │   │   ├── data/
+│   │   │   │   ├── part-1.jsonl
+│   │   │   │   └── part-2.jsonl
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   └── overview/
 │   │       └── .gitkeep
-│   ├── 02-tutorials/
-│   │   ├── know_your_dataset/
-│   │   │   └── .gitkeep
+│   ├── 02-process/
+│   │   ├── batch/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── cast/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── concatenate/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── filter/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── flatten/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── format/
+│   │   │   ├── custom_format/
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── tabular_format/
+│   │   │   │   ├── polars/
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── main.py
+│   │   │   │   └── spark/
+│   │   │   │       └── .gitkeep
+│   │   │   └── tensor_format/
+│   │   │       ├── jax/
+│   │   │       │   ├── README.md
+│   │   │       │   └── main.py
+│   │   │       └── tensorflow/
+│   │   │           ├── README.md
+│   │   │           └── main.py
+│   │   ├── interleave/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── map/
+│   │   │   ├── async_process/
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── batch_process/
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── data_augmentation/
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── distributed_usage/
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   ├── multi_process/
+│   │   │   │   ├── README.md
+│   │   │   │   └── main.py
+│   │   │   └── multi_split_process/
+│   │   │       ├── README.md
+│   │   │       └── main.py
 │   │   ├── overview/
 │   │   │   └── .gitkeep
-│   │   └── preprocess/
+│   │   ├── remove/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── rename/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── select/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── shard/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── shuffle/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   ├── sort/
+│   │   │   ├── README.md
+│   │   │   └── main.py
+│   │   └── split/
+│   │       ├── README.md
+│   │       └── main.py
+│   ├── 03-stream/
+│   │   └── overview/
 │   │       └── .gitkeep
-│   ├── 03-general-usage/
-│   │   └── .gitkeep
-│   ├── 04-audio/
-│   │   ├── create_audio_dataset/
-│   │   │   └── .gitkeep
-│   │   ├── load_audio_data/
-│   │   │   └── .gitkeep
-│   │   └── process_audio_data/
+│   ├── 04-use-with-pytorch/
+│   │   └── torch/
+│   │       ├── README.md
+│   │       └── main.py
+│   ├── 05-use-with-numpy/
+│   │   └── numpy/
+│   │       ├── README.md
+│   │       └── main.py
+│   ├── 06-use-with-pandas/
+│   │   └── pandas/
+│   │       ├── README.md
+│   │       └── main.py
+│   ├── 07-use-with-pyarrow/
+│   │   └── arrow/
+│   │       ├── README.md
+│   │       └── main.py
+│   ├── 08-cache-management/
+│   │   └── cache_management/
 │   │       └── .gitkeep
-│   ├── 05-vision/
-│   │   ├── create_document_dataset/
-│   │   │   └── .gitkeep
-│   │   ├── create_image_dataset/
-│   │   │   └── .gitkeep
-│   │   ├── create_medical_imaging_dataset/
-│   │   │   └── .gitkeep
-│   │   ├── create_video_dataset/
-│   │   │   └── .gitkeep
-│   │   ├── depth_estimation/
-│   │   │   └── .gitkeep
-│   │   ├── image_classification/
-│   │   │   └── .gitkeep
-│   │   ├── load_document_data/
-│   │   │   └── .gitkeep
-│   │   ├── load_image_data/
-│   │   │   └── .gitkeep
-│   │   ├── load_video_data/
-│   │   │   └── .gitkeep
-│   │   ├── object_detection/
-│   │   │   └── .gitkeep
-│   │   ├── process_image_data/
-│   │   │   └── .gitkeep
-│   │   └── semantic_segmentation/
+│   ├── 09-cloud-storage/
+│   │   └── cloud_storage/
 │   │       └── .gitkeep
-│   ├── 06-text/
-│   │   ├── load_text_data/
-│   │   │   └── .gitkeep
-│   │   └── process_text_data/
+│   ├── 10-search-index/
+│   │   └── search_index/
 │   │       └── .gitkeep
-│   ├── 07-tabular/
-│   │   └── load_tabular_data/
-│   │       └── .gitkeep
-│   ├── 08-dataset-repository/
-│   │   ├── create_dataset_card/
-│   │   │   └── .gitkeep
-│   │   ├── share_dataset_repository/
-│   │   │   └── .gitkeep
-│   │   ├── share_dataset_to_hub/
-│   │   │   └── .gitkeep
-│   │   └── structure_repository/
-│   │       └── .gitkeep
-│   ├── 09-conceptual-guides/
-│   │   ├── batch_mapping/
-│   │   │   └── .gitkeep
-│   │   ├── build_and_load/
-│   │   │   └── .gitkeep
-│   │   ├── dataset_features/
-│   │   │   └── .gitkeep
-│   │   ├── dataset_or_iterable_dataset/
-│   │   │   └── .gitkeep
-│   │   ├── datasets_and_arrow/
-│   │   │   └── .gitkeep
-│   │   └── the_cache/
-│   │       └── .gitkeep
-│   └── 10-reference/
-│       ├── builder_classes/
-│       │   └── .gitkeep
-│       ├── loading_methods/
-│       │   └── .gitkeep
-│       ├── main_classes/
-│       │   └── .gitkeep
-│       ├── table_classes/
-│       │   └── .gitkeep
-│       └── utilities/
+│   └── 11-cli/
+│       └── cli/
 │           └── .gitkeep
 ├── .gitattributes
 ├── .gitignore
@@ -312,19 +232,17 @@ The current repository structure below is generated from the filesystem in tree-
 ## Topic Notes
 
 - `topics.yaml` is the canonical curriculum manifest for future agent automation and long-term coverage planning.
-- `topics/` now contains the first-level curriculum folders from `topics.yaml`, and each one uses the topic slug as its directory name, such as `topics/01-get-started/`.
-- `topics/01-get-started/` and `topics/02-tutorials/` track beginner onboarding flows derived from the official docs structure.
-- `load/` focuses on dataset ingestion from local files, in-memory objects, URLs, Hugging Face Hub, SQL, and multiprocessing-related loading workflows.
-- `process/` focuses on transformations such as `map`, `filter`, formatting, splitting, concatenation, sharding, batching, and feature casting.
-- `topics/04-audio/`, `topics/05-vision/`, `topics/06-text/`, and `topics/07-tabular/` reserve modality-specific examples that align with the official how-to guides.
-- `topics/08-dataset-repository/`, `stream/`, `table/`, `topics/09-conceptual-guides/`, and `topics/10-reference/` reserve curriculum areas for publishing, streaming, indexing, conceptual explanations, and API-oriented reference examples.
+- `topics/01-load/` follows the official [Load](https://huggingface.co/docs/datasets/en/loading) guide and holds loading workflows such as `Dataset.from_*`, local file formats, Hub loading, and multi-file loading.
+- `topics/02-process/` follows the official [Process](https://huggingface.co/docs/datasets/en/process) guide and holds transformation workflows such as `map`, `filter`, `select`, formatting, splitting, concatenation, and schema changes.
+- `topics/03-stream/` through `topics/11-cli/` follow the remaining official General usage guides for streaming, framework/dataframe integration, cache management, cloud storage, search indexes, and the CLI.
+- `config/` currently keeps ancillary placeholders such as `get_dataset_config_names/` and `troubleshooting/` that are not part of the current 11-topic General usage curriculum.
 - Some folders currently contain only `.gitkeep` placeholders because they are planned curriculum entries, not implemented examples yet.
 
 ## Repository Conventions
 
 - Dependencies are managed globally from the root with `uv`.
-- New work should follow both the current filesystem tree and `topics.yaml`.
-- It is acceptable to refine or extend the tree when a topic boundary is unclear, but `topics.yaml`, `README.md`, and the folder structure should stay consistent with each other.
+- New work should follow `topics.yaml` and the `topics/` tree first.
+- Each first-level curriculum section under `topics/` should correspond to one official Hugging Face `datasets` General usage page.
 - Each concrete example should live in the relevant topic folder and should eventually include:
   - `main.py` or another small root-level Python file
   - a root-level `README.md` for how to run it and what it teaches
@@ -333,4 +251,4 @@ The current repository structure below is generated from the filesystem in tree-
 
 ## Run
 
-Once examples are added, prefer `uv run` from the repository root with explicit module or script paths documented in each example's `README.md`.
+Prefer `uv run` from the repository root with explicit script paths documented in each example `README.md`, for example `uv run python topics/01-load/from_sql/main.py`.
