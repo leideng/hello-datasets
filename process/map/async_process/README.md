@@ -23,60 +23,28 @@ The script prints:
 - the transformed dataset summary
 - rows with a derived `normalized` column
 
-## Line-by-Line Code Explanation
+## Key Code Explanation
 
-Blank lines are omitted below. Each bullet points to the matching source line in `main.py`.
+This section focuses on the important lines in `main.py`. Straightforward lines such as simple `print(...)` calls are intentionally omitted.
 
 - Line 1: `import asyncio`
-  Imports Python's async support so the example can define and run asynchronous code.
+  Imports Python's async support so the example can define asynchronous preprocessing logic.
 - Line 3: `from datasets import Dataset`
-  Imports `Dataset` from Hugging Face `datasets`, which provides the main API used in this example.
+  Imports `Dataset` from Hugging Face `datasets`, which is the main API demonstrated by this example.
 - Line 6: `async def normalize_batch(batch: dict[str, list]) -> dict[str, list]:`
-  Defines the async helper function `normalize_batch` used later in the example.
+  Defines async helper `normalize_batch`, which is later passed into the dataset workflow.
 - Line 7: `    await asyncio.sleep(0)`
-  Waits for an async operation to finish before continuing.
+  Shows where the async function yields control before continuing its work.
 - Line 8: `    return {`
-  Returns the computed value back to the caller.
-- Line 9: `        "normalized": [text.lower().replace(" ", "_") for text in batch["text"]]`
-  Provides one literal sample value used by the example data or configuration.
-- Line 10: `    }`
-  Continues the multi-line Python structure opened by the previous line.
+  Returns the transformed value that the dataset API will store or use next.
 - Line 13: `def main() -> None:`
-  Defines the function `main` so the example logic is grouped into a named step.
+  Defines `main`, the function that groups one logical step of the example.
 - Line 14: `    dataset = Dataset.from_dict(`
-  Creates a small in-memory dataset from Python lists so the transformation can be demonstrated clearly.
-- Line 15: `        {`
-  Continues the multi-line Python structure opened by the previous line.
-- Line 16: `            "id": [1, 2, 3],`
-  Provides one literal sample value used by the example data or configuration.
-- Line 17: `            "text": [`
-  Provides one literal sample value used by the example data or configuration.
-- Line 18: `                "Async Map Example",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 19: `                "Normalize Retrieved Text",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 20: `                "Keep The Example Small",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 21: `            ],`
-  Closes part of the sample data structure being built.
-- Line 22: `        }`
-  Continues the multi-line Python structure opened by the previous line.
-- Line 23: `    )`
-  Continues the multi-line Python structure opened by the previous line.
+  Creates a tiny in-memory dataset so the transformation can be demonstrated without external files.
 - Line 25: `    mapped_dataset = dataset.map(normalize_batch, batched=True)`
-  Applies `map(...)` to create a transformed version of the dataset.
-- Line 27: `    print("Dataset after async batched map")`
-  Prints information so you can observe what the dataset operation produced.
-- Line 28: `    print(mapped_dataset)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 29: `    print()`
-  Prints information so you can observe what the dataset operation produced.
-- Line 30: `    print("Rows:", mapped_dataset[:])`
-  Prints information so you can observe what the dataset operation produced.
+  Applies `map(...)` to create transformed columns or rows from the original dataset.
 - Line 33: `if __name__ == "__main__":`
-  Runs the script entry point only when this file is executed directly.
-- Line 34: `    main()`
-  Calls `main()` to start the example.
+  Runs the example only when this file is executed directly.
 
 ## Notes
 

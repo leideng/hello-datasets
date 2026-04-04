@@ -24,50 +24,26 @@ The script:
 - loads it through `load_dataset("csv", ...)`
 - prints the resolved URL, schema, and loaded rows
 
-## Line-by-Line Code Explanation
+## Key Code Explanation
 
-Blank lines are omitted below. Each bullet points to the matching source line in `main.py`.
+This section focuses on the important lines in `main.py`. Straightforward lines such as simple `print(...)` calls are intentionally omitted.
 
 - Line 1: `from pathlib import Path`
-  Imports `Path` so file and directory paths can be built in a platform-safe way.
+  Imports `Path` so local files such as `data/` inputs and cache directories can be built safely.
 - Line 3: `from datasets import load_dataset`
-  Imports `load_dataset` from Hugging Face `datasets`, which provides the main API used in this example.
+  Imports `load_dataset` from Hugging Face `datasets`, which is the main API demonstrated by this example.
 - Line 6: `def main() -> None:`
-  Defines the function `main` so the example logic is grouped into a named step.
+  Defines `main`, the function that groups one logical step of the example.
 - Line 7: `    example_dir = Path(__file__).resolve().parent`
-  Finds the example folder so nearby `data/` and `.cache/` paths can be built relative to this file.
+  Finds the example folder so local `data/` and `.cache/` paths stay relative to this example.
 - Line 8: `    data_file = example_dir / "data" / "sample.csv"`
-  Builds the path to a local input file used by the example.
+  Builds the path to the local sample data used by the example.
 - Line 9: `    cache_dir = example_dir / ".cache"`
-  Creates a local cache path so generated dataset artifacts stay inside this example folder.
-- Line 10: `    file_url = data_file.resolve().as_uri()`
-  Saves a value into `file_url` so later lines can reuse it.
+  Keeps generated cache artifacts inside this example folder instead of a global location.
 - Line 12: `    dataset = load_dataset(`
-  Starts a multi-line function call whose arguments are listed on the next lines.
-- Line 13: `        "csv",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 14: `        data_files=file_url,`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 15: `        cache_dir=str(cache_dir),`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 16: `    )["train"]`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 18: `    print("Dataset loaded from a file:// URL")`
-  Prints information so you can observe what the dataset operation produced.
-- Line 19: `    print("URL:", file_url)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 20: `    print(dataset)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 21: `    print()`
-  Prints information so you can observe what the dataset operation produced.
-- Line 22: `    print("Features:", dataset.features)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 23: `    print("Rows:", dataset[:])`
-  Prints information so you can observe what the dataset operation produced.
+  This is one of the key lines that shapes how the dataset is loaded, transformed, or formatted.
 - Line 26: `if __name__ == "__main__":`
-  Runs the script entry point only when this file is executed directly.
-- Line 27: `    main()`
-  Calls `main()` to start the example.
+  Runs the example only when this file is executed directly.
 
 ## Notes
 

@@ -24,80 +24,34 @@ The script:
 - loads it with `load_dataset`
 - prints the schema and loaded rows
 
-## Line-by-Line Code Explanation
+## Key Code Explanation
 
-Blank lines are omitted below. Each bullet points to the matching source line in `main.py`.
+This section focuses on the important lines in `main.py`. Straightforward lines such as simple `print(...)` calls are intentionally omitted.
 
 - Line 1: `from pathlib import Path`
-  Imports `Path` so file and directory paths can be built in a platform-safe way.
+  Imports `Path` so local files such as `data/` inputs and cache directories can be built safely.
 - Line 3: `import pandas as pd`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  This is one of the key lines that shapes how the dataset is loaded, transformed, or formatted.
 - Line 4: `from datasets import load_dataset`
-  Imports `load_dataset` from Hugging Face `datasets`, which provides the main API used in this example.
+  Imports `load_dataset` from Hugging Face `datasets`, which is the main API demonstrated by this example.
 - Line 7: `def write_parquet_file(parquet_file: Path) -> None:`
-  Defines the function `write_parquet_file` so the example logic is grouped into a named step.
+  Defines `write_parquet_file`, the function that groups one logical step of the example.
 - Line 8: `    parquet_file.parent.mkdir(parents=True, exist_ok=True)`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 10: `    dataframe = pd.DataFrame(`
-  Starts a multi-line function call whose arguments are listed on the next lines.
-- Line 11: `        {`
-  Continues the multi-line Python structure opened by the previous line.
-- Line 12: `            "id": [1, 2, 3],`
-  Provides one literal sample value used by the example data or configuration.
-- Line 13: `            "task": [`
-  Provides one literal sample value used by the example data or configuration.
-- Line 14: `                "write parquet locally",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 15: `                "load parquet with datasets",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 16: `                "inspect the resulting schema",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 17: `            ],`
-  Closes part of the sample data structure being built.
-- Line 18: `            "done": [True, True, False],`
-  Provides one literal sample value used by the example data or configuration.
-- Line 19: `        }`
-  Continues the multi-line Python structure opened by the previous line.
-- Line 20: `    )`
-  Continues the multi-line Python structure opened by the previous line.
-- Line 21: `    dataframe.to_parquet(parquet_file, index=False)`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  This is one of the key lines that shapes how the dataset is loaded, transformed, or formatted.
 - Line 24: `def main() -> None:`
-  Defines the function `main` so the example logic is grouped into a named step.
+  Defines `main`, the function that groups one logical step of the example.
 - Line 25: `    example_dir = Path(__file__).resolve().parent`
-  Finds the example folder so nearby `data/` and `.cache/` paths can be built relative to this file.
+  Finds the example folder so local `data/` and `.cache/` paths stay relative to this example.
 - Line 26: `    data_file = example_dir / "data" / "sample.parquet"`
-  Builds the path to a local input file used by the example.
+  Builds the path to the local sample data used by the example.
 - Line 27: `    cache_dir = example_dir / ".cache"`
-  Creates a local cache path so generated dataset artifacts stay inside this example folder.
-- Line 29: `    write_parquet_file(data_file)`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  Keeps generated cache artifacts inside this example folder instead of a global location.
 - Line 31: `    dataset_dict = load_dataset(`
-  Calls `load_dataset(...)` to load data with one of the built-in dataset loaders.
-- Line 32: `        "parquet",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 33: `        data_files=str(data_file),`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 34: `        cache_dir=str(cache_dir),`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 35: `    )`
-  Continues the multi-line Python structure opened by the previous line.
+  Calls `load_dataset(...)`, the core loader used to read this data format.
 - Line 36: `    train_dataset = dataset_dict["train"]`
-  Selects the loaded `train` split so the example can inspect it directly.
-- Line 38: `    print("Dataset loaded with load_dataset('parquet', data_files=...)")`
-  Prints information so you can observe what the dataset operation produced.
-- Line 39: `    print(dataset_dict)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 40: `    print()`
-  Prints information so you can observe what the dataset operation produced.
-- Line 41: `    print("Features:", train_dataset.features)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 42: `    print("All rows:", train_dataset[:])`
-  Prints information so you can observe what the dataset operation produced.
+  Pulls out the `train` split so the example can inspect the loaded records directly.
 - Line 45: `if __name__ == "__main__":`
-  Runs the script entry point only when this file is executed directly.
-- Line 46: `    main()`
-  Calls `main()` to start the example.
+  Runs the example only when this file is executed directly.
 
 ## Notes
 

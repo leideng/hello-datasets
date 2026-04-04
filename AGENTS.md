@@ -45,7 +45,7 @@ For every concrete example folder:
   - how to run the code
   - what the example demonstrates
   - short learning notes about the relevant `datasets` feature
-  - a line-by-line code explanation section for beginners
+  - a key-line code explanation section for beginners
 - The subfolder should be minimal and self-contained.
 
 ## Dependency management
@@ -86,7 +86,7 @@ Each feature's root-level `README.md` should usually contain:
 - exact `uv` commands to run
 - expected output or observable behavior
 - key learning points
-- a line-by-line explanation of the code so a beginner can follow what each part does
+- a key-line explanation of the code so a beginner can follow the important parts without unnecessary repetition
 - links or references to the relevant Hugging Face datasets concepts when useful
 
 Documentation should teach, not just list commands. This repository is for beginners, so prefer explicit, patient explanations over terse summaries.
@@ -113,7 +113,7 @@ When adding a new example:
 2. Choose the most relevant existing topic path.
 3. Use the root `pyproject.toml` managed with `uv` for dependencies.
 4. Put runnable Python code directly in the example root.
-5. Write learning-oriented documentation in the example's root-level `README.md`, including a line-by-line code explanation section.
+5. Write learning-oriented documentation in the example's root-level `README.md`, including a key-line code explanation section.
 6. Use `data/` for local test data or sample files when needed.
 7. Keep the example independent from other folders.
 8. Verify the documented commands are correct.
@@ -146,5 +146,5 @@ If you are an automated coding agent working in this repo:
 - Use `uv` for dependency and run instructions.
 - If adding a new example, put code files and `README.md` in the example root, and use `data/` only for local data files.
 - Update `README.md` first when introducing or changing topic paths.
-- If adding code, also add or update the corresponding documentation, including a line-by-line code explanation section in the example `README.md`.
+- If adding code, also add or update the corresponding documentation, including a key-line code explanation section in the example `README.md`.
 - Prefer the simplest implementation that accurately demonstrates the `datasets` feature.

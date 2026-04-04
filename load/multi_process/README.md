@@ -24,98 +24,40 @@ The script:
 - requests `num_proc=2`
 - prints the combined dataset rows
 
-## Line-by-Line Code Explanation
+## Key Code Explanation
 
-Blank lines are omitted below. Each bullet points to the matching source line in `main.py`.
+This section focuses on the important lines in `main.py`. Straightforward lines such as simple `print(...)` calls are intentionally omitted.
 
 - Line 1: `from pathlib import Path`
-  Imports `Path` so file and directory paths can be built in a platform-safe way.
+  Imports `Path` so local files such as `data/` inputs and cache directories can be built safely.
 - Line 2: `import socket`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  This is one of the key lines that shapes how the dataset is loaded, transformed, or formatted.
 - Line 4: `from datasets import load_dataset`
-  Imports `load_dataset` from Hugging Face `datasets`, which provides the main API used in this example.
+  Imports `load_dataset` from Hugging Face `datasets`, which is the main API demonstrated by this example.
 - Line 7: `def try_parallel_load(data_files: list[str], cache_dir: Path):`
-  Defines the function `try_parallel_load` so the example logic is grouped into a named step.
+  Defines `try_parallel_load`, the function that groups one logical step of the example.
 - Line 8: `    return load_dataset(`
-  Returns the computed value back to the caller.
-- Line 9: `        "json",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 10: `        data_files=data_files,`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 11: `        num_proc=2,`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 12: `        cache_dir=str(cache_dir),`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 13: `    )["train"]`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  Returns the transformed value that the dataset API will store or use next.
 - Line 16: `def supports_local_process_manager() -> bool:`
-  Defines the function `supports_local_process_manager` so the example logic is grouped into a named step.
-- Line 17: `    try:`
-  Starts a `try` block so the example can handle errors or guarantee cleanup.
+  Defines `supports_local_process_manager`, the function that groups one logical step of the example.
 - Line 18: `        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 19: `            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 20: `            sock.bind(("127.0.0.1", 0))`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  Starts a context manager so temporary resources are created and cleaned up safely.
 - Line 21: `        return True`
-  Returns the computed value back to the caller.
-- Line 22: `    except OSError:`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  Returns the transformed value that the dataset API will store or use next.
 - Line 23: `        return False`
-  Returns the computed value back to the caller.
+  Returns the transformed value that the dataset API will store or use next.
 - Line 26: `def main() -> None:`
-  Defines the function `main` so the example logic is grouped into a named step.
+  Defines `main`, the function that groups one logical step of the example.
 - Line 27: `    example_dir = Path(__file__).resolve().parent`
-  Finds the example folder so nearby `data/` and `.cache/` paths can be built relative to this file.
-- Line 28: `    data_files = sorted(str(path) for path in (example_dir / "data").glob("*.jsonl"))`
-  Saves a value into `data_files` so later lines can reuse it.
+  Finds the example folder so local `data/` and `.cache/` paths stay relative to this example.
 - Line 29: `    cache_dir = example_dir / ".cache"`
-  Creates a local cache path so generated dataset artifacts stay inside this example folder.
-- Line 31: `    if supports_local_process_manager():`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  Keeps generated cache artifacts inside this example folder instead of a global location.
 - Line 32: `        dataset = try_parallel_load(data_files, cache_dir)`
-  Saves a value into `dataset` so later lines can reuse it.
-- Line 33: `        execution_mode = "parallel"`
-  Saves a value into `execution_mode` so later lines can reuse it.
-- Line 34: `    else:`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 35: `        print("Parallel loading was blocked in this environment.")`
-  Prints information so you can observe what the dataset operation produced.
-- Line 36: `        print("Falling back to num_proc=1 because local process sockets are unavailable.")`
-  Prints information so you can observe what the dataset operation produced.
-- Line 37: `        print()`
-  Prints information so you can observe what the dataset operation produced.
+  This is one of the key lines that shapes how the dataset is loaded, transformed, or formatted.
 - Line 38: `        dataset = load_dataset(`
-  Starts a multi-line function call whose arguments are listed on the next lines.
-- Line 39: `            "json",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 40: `            data_files=data_files,`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 41: `            num_proc=1,`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 42: `            cache_dir=str(cache_dir),`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 43: `        )["train"]`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 44: `        execution_mode = "fallback-single-process"`
-  Saves a value into `execution_mode` so later lines can reuse it.
-- Line 46: `    print("Dataset loaded with multiple worker processes")`
-  Prints information so you can observe what the dataset operation produced.
-- Line 47: `    print("Execution mode:", execution_mode)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 48: `    print(dataset)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 49: `    print()`
-  Prints information so you can observe what the dataset operation produced.
-- Line 50: `    print("Number of rows:", len(dataset))`
-  Prints information so you can observe what the dataset operation produced.
-- Line 51: `    print("Rows:", dataset[:])`
-  Prints information so you can observe what the dataset operation produced.
+  This is one of the key lines that shapes how the dataset is loaded, transformed, or formatted.
 - Line 54: `if __name__ == "__main__":`
-  Runs the script entry point only when this file is executed directly.
-- Line 55: `    main()`
-  Calls `main()` to start the example.
+  Runs the example only when this file is executed directly.
 
 ## Notes
 

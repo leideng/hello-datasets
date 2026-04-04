@@ -29,46 +29,26 @@ The script prints:
 - the inferred schema
 - the first two rows
 
-## Line-by-Line Code Explanation
+## Key Code Explanation
 
-Blank lines are omitted below. Each bullet points to the matching source line in `main.py`.
+This section focuses on the important lines in `main.py`. Straightforward lines such as simple `print(...)` calls are intentionally omitted.
 
 - Line 1: `from pathlib import Path`
-  Imports `Path` so file and directory paths can be built in a platform-safe way.
+  Imports `Path` so local files such as `data/` inputs and cache directories can be built safely.
 - Line 3: `from datasets import load_dataset`
-  Imports `load_dataset` from Hugging Face `datasets`, which provides the main API used in this example.
+  Imports `load_dataset` from Hugging Face `datasets`, which is the main API demonstrated by this example.
 - Line 6: `def main() -> None:`
-  Defines the function `main` so the example logic is grouped into a named step.
+  Defines `main`, the function that groups one logical step of the example.
 - Line 7: `    data_file = Path(__file__).resolve().parent / "data" / "sample.csv"`
-  Builds the path to a local input file used by the example.
+  Builds the path to the local sample data used by the example.
 - Line 8: `    cache_dir = Path(__file__).resolve().parent / ".cache"`
-  Creates a local cache path so generated dataset artifacts stay inside this example folder.
+  Keeps generated cache artifacts inside this example folder instead of a global location.
 - Line 10: `    dataset_dict = load_dataset(`
-  Calls `load_dataset(...)` to load data with one of the built-in dataset loaders.
-- Line 11: `        "csv",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 12: `        data_files=str(data_file),`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 13: `        cache_dir=str(cache_dir),`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 14: `    )`
-  Continues the multi-line Python structure opened by the previous line.
+  Calls `load_dataset(...)`, the core loader used to read this data format.
 - Line 15: `    train_dataset = dataset_dict["train"]`
-  Selects the loaded `train` split so the example can inspect it directly.
-- Line 17: `    print("Dataset loaded with load_dataset('csv', data_files=...)")`
-  Prints information so you can observe what the dataset operation produced.
-- Line 18: `    print(dataset_dict)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 19: `    print()`
-  Prints information so you can observe what the dataset operation produced.
-- Line 20: `    print("Features:", train_dataset.features)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 21: `    print("Rows 0 and 1:", train_dataset[:2])`
-  Prints information so you can observe what the dataset operation produced.
+  Pulls out the `train` split so the example can inspect the loaded records directly.
 - Line 24: `if __name__ == "__main__":`
-  Runs the script entry point only when this file is executed directly.
-- Line 25: `    main()`
-  Calls `main()` to start the example.
+  Runs the example only when this file is executed directly.
 
 ## Notes
 

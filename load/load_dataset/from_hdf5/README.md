@@ -24,76 +24,34 @@ The script:
 - loads it with `load_dataset`
 - prints the inferred features and rows
 
-## Line-by-Line Code Explanation
+## Key Code Explanation
 
-Blank lines are omitted below. Each bullet points to the matching source line in `main.py`.
+This section focuses on the important lines in `main.py`. Straightforward lines such as simple `print(...)` calls are intentionally omitted.
 
 - Line 1: `from pathlib import Path`
-  Imports `Path` so file and directory paths can be built in a platform-safe way.
+  Imports `Path` so local files such as `data/` inputs and cache directories can be built safely.
 - Line 3: `import h5py`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  This is one of the key lines that shapes how the dataset is loaded, transformed, or formatted.
 - Line 4: `from datasets import load_dataset`
-  Imports `load_dataset` from Hugging Face `datasets`, which provides the main API used in this example.
+  Imports `load_dataset` from Hugging Face `datasets`, which is the main API demonstrated by this example.
 - Line 7: `def write_hdf5_file(hdf5_file: Path) -> None:`
-  Defines the function `write_hdf5_file` so the example logic is grouped into a named step.
+  Defines `write_hdf5_file`, the function that groups one logical step of the example.
 - Line 8: `    hdf5_file.parent.mkdir(parents=True, exist_ok=True)`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  This is one of the key lines that shapes how the dataset is loaded, transformed, or formatted.
 - Line 10: `    with h5py.File(hdf5_file, "w") as handle:`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 11: `        handle.create_dataset("id", data=[1, 2, 3])`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 12: `        handle.create_dataset(`
-  Starts a multi-line function call whose arguments are listed on the next lines.
-- Line 13: `            "title",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 14: `            data=[`
-  Starts a multi-line collection literal used by this example.
-- Line 15: `                b"store columns in one hdf5 file",`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 16: `                b"load them with datasets",`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 17: `                b"inspect the inferred schema",`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 18: `            ],`
-  Closes part of the sample data structure being built.
-- Line 19: `        )`
-  Continues the multi-line Python structure opened by the previous line.
-- Line 20: `        handle.create_dataset("score", data=[0.9, 0.8, 0.95])`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  Starts a context manager so temporary resources are created and cleaned up safely.
 - Line 23: `def main() -> None:`
-  Defines the function `main` so the example logic is grouped into a named step.
+  Defines `main`, the function that groups one logical step of the example.
 - Line 24: `    example_dir = Path(__file__).resolve().parent`
-  Finds the example folder so nearby `data/` and `.cache/` paths can be built relative to this file.
+  Finds the example folder so local `data/` and `.cache/` paths stay relative to this example.
 - Line 25: `    data_file = example_dir / "data" / "sample.h5"`
-  Builds the path to a local input file used by the example.
+  Builds the path to the local sample data used by the example.
 - Line 26: `    cache_dir = example_dir / ".cache"`
-  Creates a local cache path so generated dataset artifacts stay inside this example folder.
-- Line 28: `    write_hdf5_file(data_file)`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
+  Keeps generated cache artifacts inside this example folder instead of a global location.
 - Line 30: `    dataset = load_dataset(`
-  Starts a multi-line function call whose arguments are listed on the next lines.
-- Line 31: `        "hdf5",`
-  Provides one literal sample value used by the example data or configuration.
-- Line 32: `        data_files=str(data_file),`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 33: `        cache_dir=str(cache_dir),`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 34: `    )["train"]`
-  Performs one step of the example so the overall dataset workflow is easier to follow.
-- Line 36: `    print("Dataset loaded with load_dataset('hdf5', data_files=...)")`
-  Prints information so you can observe what the dataset operation produced.
-- Line 37: `    print(dataset)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 38: `    print()`
-  Prints information so you can observe what the dataset operation produced.
-- Line 39: `    print("Features:", dataset.features)`
-  Prints information so you can observe what the dataset operation produced.
-- Line 40: `    print("Rows:", dataset[:])`
-  Prints information so you can observe what the dataset operation produced.
+  This is one of the key lines that shapes how the dataset is loaded, transformed, or formatted.
 - Line 43: `if __name__ == "__main__":`
-  Runs the script entry point only when this file is executed directly.
-- Line 44: `    main()`
-  Calls `main()` to start the example.
+  Runs the example only when this file is executed directly.
 
 ## Notes
 
