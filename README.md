@@ -4,6 +4,13 @@ Learning repository for efficient, example-driven use of Hugging Face `datasets`
 
 This repo uses a single root `pyproject.toml` managed by `uv`. Each topic folder is intended to stay minimal and self-contained, with runnable code and its learning-oriented `README.md` placed directly in the example root. Local sample data stays in `data/` when needed.
 
+## Table of Contents
+
+- [Topic Tree](#topic-tree)
+- [Topic Notes](#topic-notes)
+- [Repository Conventions](#repository-conventions)
+- [Run](#run)
+
 ## Topic Tree
 
 The current repository topic structure is:
