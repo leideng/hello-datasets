@@ -31,10 +31,14 @@ This section focuses on the important lines in `main.py`. Straightforward lines 
 
 - Line 1: `from datasets import load_dataset`
   Imports `load_dataset` from Hugging Face `datasets`, which is the main API demonstrated by this example.
-- Line 4: `def main() -> None:`
+- Line 1: `from pathlib import Path`
+  Imports `Path` so the example can keep cache files inside its own folder.
+- Line 6: `def main() -> None:`
   Defines `main`, the function that groups one logical step of the example.
-- Line 11: `        dataset = load_dataset(repo_id, split="train[:3]")`
-  This is one of the key lines that shapes how the dataset is loaded, transformed, or formatted.
+- Line 8: `    cache_dir = Path(__file__).resolve().parent / ".cache"`
+  Keeps downloaded metadata and cache files inside this example folder instead of a global home cache.
+- Line 14: `        dataset = load_dataset(repo_id, split="train[:3]", cache_dir=str(cache_dir))`
+  Loads a small slice from a public Hub dataset while using a local cache directory.
 - Line 24: `if __name__ == "__main__":`
   Runs the example only when this file is executed directly.
 
