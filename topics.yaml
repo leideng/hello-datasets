@@ -9,16 +9,16 @@ topics:
 - order: 1
   slug: 01-get-started
   title: Get Started
-  path: getting_started
+  path: topics/01-get-started
   status: planned
   official_section: Get started
   projects:
   - order: 1
     slug: 01-quickstart
     title: Quickstart
-    path: getting_started/quickstart
-    readme: getting_started/quickstart/README.md
-    entry: getting_started/quickstart/main.py
+    path: topics/01-get-started/quickstart
+    readme: topics/01-get-started/quickstart/README.md
+    entry: topics/01-get-started/quickstart/main.py
     status: planned
     official_page: Quickstart
     main_idea: Write the smallest possible runnable introduction to the datasets library.
@@ -27,9 +27,9 @@ topics:
   - order: 2
     slug: 02-installation
     title: Installation
-    path: getting_started/installation
-    readme: getting_started/installation/README.md
-    entry: getting_started/installation/main.py
+    path: topics/01-get-started/installation
+    readme: topics/01-get-started/installation/README.md
+    entry: topics/01-get-started/installation/main.py
     status: planned
     official_page: Installation
     main_idea: Explain installation choices and optional dependencies for common datasets
@@ -39,16 +39,16 @@ topics:
 - order: 2
   slug: 02-tutorials
   title: Tutorials
-  path: tutorials
+  path: topics/02-tutorials
   status: mixed
   official_section: Tutorials
   projects:
   - order: 1
     slug: 01-overview
     title: Overview
-    path: tutorials/overview
-    readme: tutorials/overview/README.md
-    entry: tutorials/overview/main.py
+    path: topics/02-tutorials/overview
+    readme: topics/02-tutorials/overview/README.md
+    entry: topics/02-tutorials/overview/main.py
     status: planned
     official_page: Overview
     main_idea: Introduce the main ideas of loading, inspecting, and processing datasets
@@ -68,9 +68,9 @@ topics:
   - order: 3
     slug: 03-know-your-dataset
     title: Know Your Dataset
-    path: tutorials/know_your_dataset
-    readme: tutorials/know_your_dataset/README.md
-    entry: tutorials/know_your_dataset/main.py
+    path: topics/02-tutorials/know_your_dataset
+    readme: topics/02-tutorials/know_your_dataset/README.md
+    entry: topics/02-tutorials/know_your_dataset/main.py
     status: planned
     official_page: Know your dataset
     main_idea: Inspect dataset rows, columns, features, and split structure before
@@ -80,9 +80,9 @@ topics:
   - order: 4
     slug: 04-preprocess
     title: Preprocess
-    path: tutorials/preprocess
-    readme: tutorials/preprocess/README.md
-    entry: tutorials/preprocess/main.py
+    path: topics/02-tutorials/preprocess
+    readme: topics/02-tutorials/preprocess/README.md
+    entry: topics/02-tutorials/preprocess/main.py
     status: planned
     official_page: Preprocess
     main_idea: Show the end-to-end preprocessing workflow with common operations like
@@ -104,9 +104,9 @@ topics:
   - order: 6
     slug: 06-share-a-dataset-to-the-hub
     title: Share a Dataset to the Hub
-    path: share/share_dataset_to_hub
-    readme: share/share_dataset_to_hub/README.md
-    entry: share/share_dataset_to_hub/main.py
+    path: topics/08-dataset-repository/share_dataset_to_hub
+    readme: topics/08-dataset-repository/share_dataset_to_hub/README.md
+    entry: topics/08-dataset-repository/share_dataset_to_hub/main.py
     status: planned
     official_page: Share a dataset to the Hub
     main_idea: Publish a prepared dataset to the Hub so it can be reused and versioned.
@@ -114,7 +114,7 @@ topics:
 - order: 3
   slug: 03-general-usage
   title: General Usage
-  path: general_usage
+  path: topics/03-general-usage
   status: mixed
   official_section: How-to guides / General usage
   projects:
@@ -627,16 +627,16 @@ topics:
 - order: 4
   slug: 04-audio
   title: Audio
-  path: audio
+  path: topics/04-audio
   status: planned
   official_section: How-to guides / Audio
   projects:
   - order: 1
     slug: 01-load-audio-data
     title: Load Audio Data
-    path: audio/load_audio_data
-    readme: audio/load_audio_data/README.md
-    entry: audio/load_audio_data/main.py
+    path: topics/04-audio/load_audio_data
+    readme: topics/04-audio/load_audio_data/README.md
+    entry: topics/04-audio/load_audio_data/main.py
     status: planned
     official_page: Load audio data
     main_idea: Load local or hosted audio examples into dataset audio features.
@@ -644,9 +644,9 @@ topics:
   - order: 2
     slug: 02-process-audio-data
     title: Process Audio Data
-    path: audio/process_audio_data
-    readme: audio/process_audio_data/README.md
-    entry: audio/process_audio_data/main.py
+    path: topics/04-audio/process_audio_data
+    readme: topics/04-audio/process_audio_data/README.md
+    entry: topics/04-audio/process_audio_data/main.py
     status: planned
     official_page: Process audio data
     main_idea: Transform audio columns for downstream training or feature extraction.
@@ -654,9 +654,9 @@ topics:
   - order: 3
     slug: 03-create-an-audio-dataset
     title: Create an Audio Dataset
-    path: audio/create_audio_dataset
-    readme: audio/create_audio_dataset/README.md
-    entry: audio/create_audio_dataset/main.py
+    path: topics/04-audio/create_audio_dataset
+    readme: topics/04-audio/create_audio_dataset/README.md
+    entry: topics/04-audio/create_audio_dataset/main.py
     status: planned
     official_page: Create an audio dataset
     main_idea: Build a valid audio dataset structure and features from local examples.
@@ -665,16 +665,16 @@ topics:
 - order: 5
   slug: 05-vision
   title: Vision
-  path: vision
+  path: topics/05-vision
   status: planned
   official_section: How-to guides / Vision
   projects:
   - order: 1
     slug: 01-load-image-data
     title: Load Image Data
-    path: vision/load_image_data
-    readme: vision/load_image_data/README.md
-    entry: vision/load_image_data/main.py
+    path: topics/05-vision/load_image_data
+    readme: topics/05-vision/load_image_data/README.md
+    entry: topics/05-vision/load_image_data/main.py
     status: planned
     official_page: Load image data
     main_idea: Load image datasets with proper image feature handling.
@@ -682,9 +682,9 @@ topics:
   - order: 2
     slug: 02-process-image-data
     title: Process Image Data
-    path: vision/process_image_data
-    readme: vision/process_image_data/README.md
-    entry: vision/process_image_data/main.py
+    path: topics/05-vision/process_image_data
+    readme: topics/05-vision/process_image_data/README.md
+    entry: topics/05-vision/process_image_data/main.py
     status: planned
     official_page: Process image data
     main_idea: Prepare image columns for modeling with transformations or metadata
@@ -693,9 +693,9 @@ topics:
   - order: 3
     slug: 03-create-an-image-dataset
     title: Create an Image Dataset
-    path: vision/create_image_dataset
-    readme: vision/create_image_dataset/README.md
-    entry: vision/create_image_dataset/main.py
+    path: topics/05-vision/create_image_dataset
+    readme: topics/05-vision/create_image_dataset/README.md
+    entry: topics/05-vision/create_image_dataset/main.py
     status: planned
     official_page: Create an image dataset
     main_idea: Build an image dataset from local files and labels.
@@ -704,9 +704,9 @@ topics:
   - order: 4
     slug: 04-depth-estimation
     title: Depth Estimation
-    path: vision/depth_estimation
-    readme: vision/depth_estimation/README.md
-    entry: vision/depth_estimation/main.py
+    path: topics/05-vision/depth_estimation
+    readme: topics/05-vision/depth_estimation/README.md
+    entry: topics/05-vision/depth_estimation/main.py
     status: planned
     official_page: Depth estimation
     main_idea: Represent paired image and depth targets in a dataset.
@@ -714,9 +714,9 @@ topics:
   - order: 5
     slug: 05-image-classification
     title: Image Classification
-    path: vision/image_classification
-    readme: vision/image_classification/README.md
-    entry: vision/image_classification/main.py
+    path: topics/05-vision/image_classification
+    readme: topics/05-vision/image_classification/README.md
+    entry: topics/05-vision/image_classification/main.py
     status: planned
     official_page: Image classification
     main_idea: Build the dataset shape commonly used for image classification.
@@ -724,9 +724,9 @@ topics:
   - order: 6
     slug: 06-semantic-segmentation
     title: Semantic Segmentation
-    path: vision/semantic_segmentation
-    readme: vision/semantic_segmentation/README.md
-    entry: vision/semantic_segmentation/main.py
+    path: topics/05-vision/semantic_segmentation
+    readme: topics/05-vision/semantic_segmentation/README.md
+    entry: topics/05-vision/semantic_segmentation/main.py
     status: planned
     official_page: Semantic segmentation
     main_idea: Represent image-mask pairs for segmentation workflows.
@@ -734,9 +734,9 @@ topics:
   - order: 7
     slug: 07-object-detection
     title: Object Detection
-    path: vision/object_detection
-    readme: vision/object_detection/README.md
-    entry: vision/object_detection/main.py
+    path: topics/05-vision/object_detection
+    readme: topics/05-vision/object_detection/README.md
+    entry: topics/05-vision/object_detection/main.py
     status: planned
     official_page: Object detection
     main_idea: Represent images with box annotations and category labels.
@@ -744,9 +744,9 @@ topics:
   - order: 8
     slug: 08-load-video-data
     title: Load Video Data
-    path: vision/load_video_data
-    readme: vision/load_video_data/README.md
-    entry: vision/load_video_data/main.py
+    path: topics/05-vision/load_video_data
+    readme: topics/05-vision/load_video_data/README.md
+    entry: topics/05-vision/load_video_data/main.py
     status: planned
     official_page: Load video data
     main_idea: Load video examples and metadata into dataset rows.
@@ -754,9 +754,9 @@ topics:
   - order: 9
     slug: 09-create-a-video-dataset
     title: Create a Video Dataset
-    path: vision/create_video_dataset
-    readme: vision/create_video_dataset/README.md
-    entry: vision/create_video_dataset/main.py
+    path: topics/05-vision/create_video_dataset
+    readme: topics/05-vision/create_video_dataset/README.md
+    entry: topics/05-vision/create_video_dataset/main.py
     status: planned
     official_page: Create a video dataset
     main_idea: Build a small but valid video dataset structure for future workflows.
@@ -764,9 +764,9 @@ topics:
   - order: 10
     slug: 10-load-document-data
     title: Load Document Data
-    path: vision/load_document_data
-    readme: vision/load_document_data/README.md
-    entry: vision/load_document_data/main.py
+    path: topics/05-vision/load_document_data
+    readme: topics/05-vision/load_document_data/README.md
+    entry: topics/05-vision/load_document_data/main.py
     status: planned
     official_page: Load document data
     main_idea: Load document-image style data that mixes layout and visual information.
@@ -774,9 +774,9 @@ topics:
   - order: 11
     slug: 11-create-a-document-dataset
     title: Create a Document Dataset
-    path: vision/create_document_dataset
-    readme: vision/create_document_dataset/README.md
-    entry: vision/create_document_dataset/main.py
+    path: topics/05-vision/create_document_dataset
+    readme: topics/05-vision/create_document_dataset/README.md
+    entry: topics/05-vision/create_document_dataset/main.py
     status: planned
     official_page: Create a document dataset
     main_idea: Create a document dataset with files and annotations that match document
@@ -785,9 +785,9 @@ topics:
   - order: 12
     slug: 12-create-a-medical-imaging-dataset
     title: Create a Medical Imaging Dataset
-    path: vision/create_medical_imaging_dataset
-    readme: vision/create_medical_imaging_dataset/README.md
-    entry: vision/create_medical_imaging_dataset/main.py
+    path: topics/05-vision/create_medical_imaging_dataset
+    readme: topics/05-vision/create_medical_imaging_dataset/README.md
+    entry: topics/05-vision/create_medical_imaging_dataset/main.py
     status: planned
     official_page: Create a medical imaging dataset
     main_idea: Build a medical imaging dataset with the right file and metadata organization.
@@ -796,16 +796,16 @@ topics:
 - order: 6
   slug: 06-text
   title: Text
-  path: text
+  path: topics/06-text
   status: planned
   official_section: How-to guides / Text
   projects:
   - order: 1
     slug: 01-load-text-data
     title: Load Text Data
-    path: text/load_text_data
-    readme: text/load_text_data/README.md
-    entry: text/load_text_data/main.py
+    path: topics/06-text/load_text_data
+    readme: topics/06-text/load_text_data/README.md
+    entry: topics/06-text/load_text_data/main.py
     status: planned
     official_page: Load text data
     main_idea: Load raw text datasets from local files or repositories.
@@ -814,9 +814,9 @@ topics:
   - order: 2
     slug: 02-process-text-data
     title: Process Text Data
-    path: text/process_text_data
-    readme: text/process_text_data/README.md
-    entry: text/process_text_data/main.py
+    path: topics/06-text/process_text_data
+    readme: topics/06-text/process_text_data/README.md
+    entry: topics/06-text/process_text_data/main.py
     status: planned
     official_page: Process text data
     main_idea: Prepare text columns for tokenization and model training.
@@ -824,16 +824,16 @@ topics:
 - order: 7
   slug: 07-tabular
   title: Tabular
-  path: tabular
+  path: topics/07-tabular
   status: planned
   official_section: How-to guides / Tabular
   projects:
   - order: 1
     slug: 01-load-tabular-data
     title: Load Tabular Data
-    path: tabular/load_tabular_data
-    readme: tabular/load_tabular_data/README.md
-    entry: tabular/load_tabular_data/main.py
+    path: topics/07-tabular/load_tabular_data
+    readme: topics/07-tabular/load_tabular_data/README.md
+    entry: topics/07-tabular/load_tabular_data/main.py
     status: planned
     official_page: Load tabular data
     main_idea: Load structured tabular datasets with consistent schema handling.
@@ -842,16 +842,16 @@ topics:
 - order: 8
   slug: 08-dataset-repository
   title: Dataset Repository
-  path: share
+  path: topics/08-dataset-repository
   status: planned
   official_section: How-to guides / Dataset repository
   projects:
   - order: 1
     slug: 01-share
     title: Share
-    path: share/share_dataset_repository
-    readme: share/share_dataset_repository/README.md
-    entry: share/share_dataset_repository/main.py
+    path: topics/08-dataset-repository/share_dataset_repository
+    readme: topics/08-dataset-repository/share_dataset_repository/README.md
+    entry: topics/08-dataset-repository/share_dataset_repository/main.py
     status: planned
     official_page: Share
     main_idea: Share a dataset repository so others can discover and load it from
@@ -860,9 +860,9 @@ topics:
   - order: 2
     slug: 02-create-a-dataset-card
     title: Create a Dataset Card
-    path: share/create_dataset_card
-    readme: share/create_dataset_card/README.md
-    entry: share/create_dataset_card/main.py
+    path: topics/08-dataset-repository/create_dataset_card
+    readme: topics/08-dataset-repository/create_dataset_card/README.md
+    entry: topics/08-dataset-repository/create_dataset_card/main.py
     status: planned
     official_page: Create a dataset card
     main_idea: Write the metadata and documentation needed for a useful dataset card.
@@ -870,9 +870,9 @@ topics:
   - order: 3
     slug: 03-structure-your-repository
     title: Structure Your Repository
-    path: share/structure_repository
-    readme: share/structure_repository/README.md
-    entry: share/structure_repository/main.py
+    path: topics/08-dataset-repository/structure_repository
+    readme: topics/08-dataset-repository/structure_repository/README.md
+    entry: topics/08-dataset-repository/structure_repository/main.py
     status: planned
     official_page: Structure your repository
     main_idea: Organize files so a dataset repository is easy to load and maintain.
@@ -880,16 +880,16 @@ topics:
 - order: 9
   slug: 09-conceptual-guides
   title: Conceptual Guides
-  path: concepts
+  path: topics/09-conceptual-guides
   status: planned
   official_section: Conceptual guides
   projects:
   - order: 1
     slug: 01-datasets-and-arrow
     title: Datasets and Arrow
-    path: concepts/datasets_and_arrow
-    readme: concepts/datasets_and_arrow/README.md
-    entry: concepts/datasets_and_arrow/main.py
+    path: topics/09-conceptual-guides/datasets_and_arrow
+    readme: topics/09-conceptual-guides/datasets_and_arrow/README.md
+    entry: topics/09-conceptual-guides/datasets_and_arrow/main.py
     status: planned
     official_page: Datasets Arrow
     main_idea: Explain why the datasets library is built on Arrow and what that means
@@ -899,9 +899,9 @@ topics:
   - order: 2
     slug: 02-the-cache
     title: The Cache
-    path: concepts/the_cache
-    readme: concepts/the_cache/README.md
-    entry: concepts/the_cache/main.py
+    path: topics/09-conceptual-guides/the_cache
+    readme: topics/09-conceptual-guides/the_cache/README.md
+    entry: topics/09-conceptual-guides/the_cache/main.py
     status: planned
     official_page: The cache
     main_idea: Explain the caching model and why repeated loads or transforms can
@@ -911,9 +911,9 @@ topics:
   - order: 3
     slug: 03-dataset-or-iterable-dataset
     title: Dataset or IterableDataset
-    path: concepts/dataset_or_iterable_dataset
-    readme: concepts/dataset_or_iterable_dataset/README.md
-    entry: concepts/dataset_or_iterable_dataset/main.py
+    path: topics/09-conceptual-guides/dataset_or_iterable_dataset
+    readme: topics/09-conceptual-guides/dataset_or_iterable_dataset/README.md
+    entry: topics/09-conceptual-guides/dataset_or_iterable_dataset/main.py
     status: planned
     official_page: Dataset or IterableDataset
     main_idea: Compare the standard random-access Dataset with the streaming-oriented
@@ -922,9 +922,9 @@ topics:
   - order: 4
     slug: 04-dataset-features
     title: Dataset Features
-    path: concepts/dataset_features
-    readme: concepts/dataset_features/README.md
-    entry: concepts/dataset_features/main.py
+    path: topics/09-conceptual-guides/dataset_features
+    readme: topics/09-conceptual-guides/dataset_features/README.md
+    entry: topics/09-conceptual-guides/dataset_features/main.py
     status: planned
     official_page: Dataset features
     main_idea: Explain features, schemas, and modality-aware column types.
@@ -933,9 +933,9 @@ topics:
   - order: 5
     slug: 05-build-and-load
     title: Build and Load
-    path: concepts/build_and_load
-    readme: concepts/build_and_load/README.md
-    entry: concepts/build_and_load/main.py
+    path: topics/09-conceptual-guides/build_and_load
+    readme: topics/09-conceptual-guides/build_and_load/README.md
+    entry: topics/09-conceptual-guides/build_and_load/main.py
     status: planned
     official_page: Build and load
     main_idea: Explain the builder pattern and how datasets are prepared before use.
@@ -944,9 +944,9 @@ topics:
   - order: 6
     slug: 06-batch-mapping
     title: Batch Mapping
-    path: concepts/batch_mapping
-    readme: concepts/batch_mapping/README.md
-    entry: concepts/batch_mapping/main.py
+    path: topics/09-conceptual-guides/batch_mapping
+    readme: topics/09-conceptual-guides/batch_mapping/README.md
+    entry: topics/09-conceptual-guides/batch_mapping/main.py
     status: planned
     official_page: Batch mapping
     main_idea: Explain why batched map behaves differently from row-wise transforms
@@ -955,16 +955,16 @@ topics:
 - order: 10
   slug: 10-reference
   title: Reference
-  path: reference
+  path: topics/10-reference
   status: planned
   official_section: Reference
   projects:
   - order: 1
     slug: 01-main-classes
     title: Main Classes
-    path: reference/main_classes
-    readme: reference/main_classes/README.md
-    entry: reference/main_classes/main.py
+    path: topics/10-reference/main_classes
+    readme: topics/10-reference/main_classes/README.md
+    entry: topics/10-reference/main_classes/main.py
     status: planned
     official_page: Main classes
     main_idea: Summarize the most important public classes in the datasets library
@@ -974,9 +974,9 @@ topics:
   - order: 2
     slug: 02-builder-classes
     title: Builder Classes
-    path: reference/builder_classes
-    readme: reference/builder_classes/README.md
-    entry: reference/builder_classes/main.py
+    path: topics/10-reference/builder_classes
+    readme: topics/10-reference/builder_classes/README.md
+    entry: topics/10-reference/builder_classes/main.py
     status: planned
     official_page: Builder classes
     main_idea: Explain the builder classes behind dataset generation and loading.
@@ -985,9 +985,9 @@ topics:
   - order: 3
     slug: 03-loading-methods
     title: Loading Methods
-    path: reference/loading_methods
-    readme: reference/loading_methods/README.md
-    entry: reference/loading_methods/main.py
+    path: topics/10-reference/loading_methods
+    readme: topics/10-reference/loading_methods/README.md
+    entry: topics/10-reference/loading_methods/main.py
     status: planned
     official_page: Loading methods
     main_idea: Collect the main loading entry points in one reference-oriented guide.
@@ -995,9 +995,9 @@ topics:
   - order: 4
     slug: 04-table-classes
     title: Table Classes
-    path: reference/table_classes
-    readme: reference/table_classes/README.md
-    entry: reference/table_classes/main.py
+    path: topics/10-reference/table_classes
+    readme: topics/10-reference/table_classes/README.md
+    entry: topics/10-reference/table_classes/main.py
     status: planned
     official_page: Table Classes
     main_idea: Explain the Arrow table abstractions exposed by the library.
@@ -1005,9 +1005,9 @@ topics:
   - order: 5
     slug: 05-utilities
     title: Utilities
-    path: reference/utilities
-    readme: reference/utilities/README.md
-    entry: reference/utilities/main.py
+    path: topics/10-reference/utilities
+    readme: topics/10-reference/utilities/README.md
+    entry: topics/10-reference/utilities/main.py
     status: planned
     official_page: Utilities
     main_idea: Collect the smaller helper APIs that support practical datasets workflows.

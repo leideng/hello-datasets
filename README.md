@@ -2,7 +2,7 @@
 
 Learning repository for efficient, example-driven use of Hugging Face `datasets`.
 
-This repo uses a single root `pyproject.toml` managed by `uv`. Each topic folder is intended to stay minimal and self-contained, with runnable code and its learning-oriented `README.md` placed directly in the example root. Local sample data stays in `data/` when needed.
+This repo uses a single root `pyproject.toml` managed by `uv`. First-level curriculum sections from [topics.yaml](/home/leo/code/hello-datasets/topics.yaml) now live under `topics/` with slug-prefixed names such as `topics/01-get-started/` and `topics/08-dataset-repository/`. Concrete runnable examples remain minimal and self-contained, with code and learning-oriented `README.md` files placed directly in each example root. Local sample data stays in `data/` when needed.
 
 ## Table of Contents
 
@@ -27,26 +27,6 @@ The current repository structure below is generated from the filesystem in tree-
 
 ```text
 .
-├── audio/
-│   ├── create_audio_dataset/
-│   │   └── .gitkeep
-│   ├── load_audio_data/
-│   │   └── .gitkeep
-│   └── process_audio_data/
-│       └── .gitkeep
-├── concepts/
-│   ├── batch_mapping/
-│   │   └── .gitkeep
-│   ├── build_and_load/
-│   │   └── .gitkeep
-│   ├── dataset_features/
-│   │   └── .gitkeep
-│   ├── dataset_or_iterable_dataset/
-│   │   └── .gitkeep
-│   ├── datasets_and_arrow/
-│   │   └── .gitkeep
-│   └── the_cache/
-│       └── .gitkeep
 ├── config/
 │   ├── cache_management/
 │   │   └── .gitkeep
@@ -61,11 +41,6 @@ The current repository structure below is generated from the filesystem in tree-
 │   ├── to_json/
 │   ├── to_parquet/
 │   └── to_sql/
-├── getting_started/
-│   ├── installation/
-│   │   └── .gitkeep
-│   └── quickstart/
-│       └── .gitkeep
 ├── load/
 │   ├── cloud_storage/
 │   │   └── .gitkeep
@@ -227,73 +202,101 @@ The current repository structure below is generated from the filesystem in tree-
 │       ├── README.md
 │       └── main.py
 ├── read/
-├── reference/
-│   ├── builder_classes/
-│   │   └── .gitkeep
-│   ├── loading_methods/
-│   │   └── .gitkeep
-│   ├── main_classes/
-│   │   └── .gitkeep
-│   ├── table_classes/
-│   │   └── .gitkeep
-│   └── utilities/
-│       └── .gitkeep
-├── share/
-│   ├── create_dataset_card/
-│   │   └── .gitkeep
-│   ├── share_dataset_repository/
-│   │   └── .gitkeep
-│   ├── share_dataset_to_hub/
-│   │   └── .gitkeep
-│   └── structure_repository/
-│       └── .gitkeep
 ├── stream/
 │   └── overview/
 │       └── .gitkeep
 ├── table/
 │   └── search_index/
 │       └── .gitkeep
-├── tabular/
-│   └── load_tabular_data/
-│       └── .gitkeep
-├── text/
-│   ├── load_text_data/
-│   │   └── .gitkeep
-│   └── process_text_data/
-│       └── .gitkeep
 ├── tokenize/
-├── tutorials/
-│   ├── know_your_dataset/
+├── topics/
+│   ├── 01-get-started/
+│   │   ├── installation/
+│   │   │   └── .gitkeep
+│   │   └── quickstart/
+│   │       └── .gitkeep
+│   ├── 02-tutorials/
+│   │   ├── know_your_dataset/
+│   │   │   └── .gitkeep
+│   │   ├── overview/
+│   │   │   └── .gitkeep
+│   │   └── preprocess/
+│   │       └── .gitkeep
+│   ├── 03-general-usage/
 │   │   └── .gitkeep
-│   ├── overview/
-│   │   └── .gitkeep
-│   └── preprocess/
-│       └── .gitkeep
-├── vision/
-│   ├── create_document_dataset/
-│   │   └── .gitkeep
-│   ├── create_image_dataset/
-│   │   └── .gitkeep
-│   ├── create_medical_imaging_dataset/
-│   │   └── .gitkeep
-│   ├── create_video_dataset/
-│   │   └── .gitkeep
-│   ├── depth_estimation/
-│   │   └── .gitkeep
-│   ├── image_classification/
-│   │   └── .gitkeep
-│   ├── load_document_data/
-│   │   └── .gitkeep
-│   ├── load_image_data/
-│   │   └── .gitkeep
-│   ├── load_video_data/
-│   │   └── .gitkeep
-│   ├── object_detection/
-│   │   └── .gitkeep
-│   ├── process_image_data/
-│   │   └── .gitkeep
-│   └── semantic_segmentation/
-│       └── .gitkeep
+│   ├── 04-audio/
+│   │   ├── create_audio_dataset/
+│   │   │   └── .gitkeep
+│   │   ├── load_audio_data/
+│   │   │   └── .gitkeep
+│   │   └── process_audio_data/
+│   │       └── .gitkeep
+│   ├── 05-vision/
+│   │   ├── create_document_dataset/
+│   │   │   └── .gitkeep
+│   │   ├── create_image_dataset/
+│   │   │   └── .gitkeep
+│   │   ├── create_medical_imaging_dataset/
+│   │   │   └── .gitkeep
+│   │   ├── create_video_dataset/
+│   │   │   └── .gitkeep
+│   │   ├── depth_estimation/
+│   │   │   └── .gitkeep
+│   │   ├── image_classification/
+│   │   │   └── .gitkeep
+│   │   ├── load_document_data/
+│   │   │   └── .gitkeep
+│   │   ├── load_image_data/
+│   │   │   └── .gitkeep
+│   │   ├── load_video_data/
+│   │   │   └── .gitkeep
+│   │   ├── object_detection/
+│   │   │   └── .gitkeep
+│   │   ├── process_image_data/
+│   │   │   └── .gitkeep
+│   │   └── semantic_segmentation/
+│   │       └── .gitkeep
+│   ├── 06-text/
+│   │   ├── load_text_data/
+│   │   │   └── .gitkeep
+│   │   └── process_text_data/
+│   │       └── .gitkeep
+│   ├── 07-tabular/
+│   │   └── load_tabular_data/
+│   │       └── .gitkeep
+│   ├── 08-dataset-repository/
+│   │   ├── create_dataset_card/
+│   │   │   └── .gitkeep
+│   │   ├── share_dataset_repository/
+│   │   │   └── .gitkeep
+│   │   ├── share_dataset_to_hub/
+│   │   │   └── .gitkeep
+│   │   └── structure_repository/
+│   │       └── .gitkeep
+│   ├── 09-conceptual-guides/
+│   │   ├── batch_mapping/
+│   │   │   └── .gitkeep
+│   │   ├── build_and_load/
+│   │   │   └── .gitkeep
+│   │   ├── dataset_features/
+│   │   │   └── .gitkeep
+│   │   ├── dataset_or_iterable_dataset/
+│   │   │   └── .gitkeep
+│   │   ├── datasets_and_arrow/
+│   │   │   └── .gitkeep
+│   │   └── the_cache/
+│   │       └── .gitkeep
+│   └── 10-reference/
+│       ├── builder_classes/
+│       │   └── .gitkeep
+│       ├── loading_methods/
+│       │   └── .gitkeep
+│       ├── main_classes/
+│       │   └── .gitkeep
+│       ├── table_classes/
+│       │   └── .gitkeep
+│       └── utilities/
+│           └── .gitkeep
 ├── .gitattributes
 ├── .gitignore
 ├── .python-version
@@ -309,11 +312,12 @@ The current repository structure below is generated from the filesystem in tree-
 ## Topic Notes
 
 - `topics.yaml` is the canonical curriculum manifest for future agent automation and long-term coverage planning.
-- `getting_started/` and `tutorials/` track beginner onboarding flows derived from the official docs structure.
+- `topics/` now contains the first-level curriculum folders from `topics.yaml`, and each one uses the topic slug as its directory name, such as `topics/01-get-started/`.
+- `topics/01-get-started/` and `topics/02-tutorials/` track beginner onboarding flows derived from the official docs structure.
 - `load/` focuses on dataset ingestion from local files, in-memory objects, URLs, Hugging Face Hub, SQL, and multiprocessing-related loading workflows.
 - `process/` focuses on transformations such as `map`, `filter`, formatting, splitting, concatenation, sharding, batching, and feature casting.
-- `audio/`, `vision/`, `text/`, and `tabular/` reserve modality-specific examples that align with the official how-to guides.
-- `share/`, `stream/`, `table/`, `concepts/`, and `reference/` reserve curriculum areas for publishing, streaming, indexing, conceptual explanations, and API-oriented reference examples.
+- `topics/04-audio/`, `topics/05-vision/`, `topics/06-text/`, and `topics/07-tabular/` reserve modality-specific examples that align with the official how-to guides.
+- `topics/08-dataset-repository/`, `stream/`, `table/`, `topics/09-conceptual-guides/`, and `topics/10-reference/` reserve curriculum areas for publishing, streaming, indexing, conceptual explanations, and API-oriented reference examples.
 - Some folders currently contain only `.gitkeep` placeholders because they are planned curriculum entries, not implemented examples yet.
 
 ## Repository Conventions
