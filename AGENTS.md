@@ -11,12 +11,13 @@ The goal is not to build one large package. The goal is to collect small, focuse
 - Keep examples easy to read, easy to run, and easy to delete or replace.
 - Prefer practical examples over abstract helper layers.
 - Largely follow the existing topic tree already present in the repository.
+- Treat `topics.yaml` as the curriculum source of truth for planned and implemented subtasks.
 
 ## Required structure
 
-The repository already contains a topic taxonomy such as `load/`, `process/`, `export/`, `config/`, `stream/`, and related nested subfolders.
+The repository already contains a topic taxonomy such as `load/`, `process/`, `export/`, `config/`, `stream/`, and related nested subfolders, plus a root `topics.yaml` curriculum manifest.
 
-Prefer placing new work into the existing topic tree instead of inventing a parallel structure. You may refine or extend the structure when necessary, but do so deliberately and keep names consistent with the current layout.
+Prefer placing new work into the existing topic tree instead of inventing a parallel structure. You may refine or extend the structure when necessary, but do so deliberately and keep names consistent with the current layout and with `topics.yaml`.
 
 Each concrete example should live in the most relevant existing topic subfolder.
 
@@ -66,6 +67,8 @@ A good concrete example folder usually includes:
 - optional `data/`
 - optional small local data files only if they are necessary for the example
 
+A planned curriculum folder that has not been implemented yet may temporarily contain only `.gitkeep`.
+
 A concrete example folder should not depend on hidden setup in another example folder.
 
 ## Coding rules
@@ -109,7 +112,7 @@ Documentation should teach, not just list commands. This repository is for begin
 
 When adding a new example:
 
-1. Read the current topic tree in `README.md` first.
+1. Read `topics.yaml` and the current topic tree in `README.md` first.
 2. Choose the most relevant existing topic path.
 3. Use the root `pyproject.toml` managed with `uv` for dependencies.
 4. Put runnable Python code directly in the example root.
@@ -126,8 +129,8 @@ When modifying an existing example:
 
 Before writing new code:
 
-- Update `README.md` if the topic tree changes.
-- Keep the recursive topic list in `README.md` complete and current.
+- Update `topics.yaml` and `README.md` if the topic tree or curriculum changes.
+- Keep the tree-style topic listing in `README.md` complete and current.
 
 ## Non-goals
 
@@ -141,7 +144,7 @@ Before writing new code:
 If you are an automated coding agent working in this repo:
 
 - Follow the structure and scope rules in this file.
-- Read the existing directory tree before proposing a new location.
+- Read `topics.yaml` and the existing directory tree before proposing a new location.
 - Default to creating small, focused, standalone examples.
 - Use `uv` for dependency and run instructions.
 - If adding a new example, put code files and `README.md` in the example root, and use `data/` only for local data files.
