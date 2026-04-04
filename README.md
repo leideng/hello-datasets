@@ -107,7 +107,10 @@ The current repository structure below is generated from the filesystem in tree-
 │   │   │   ├── README.md
 │   │   │   └── main.py
 │   │   └── overview/
-│   │       └── .gitkeep
+│   │       ├── data/
+│   │       │   └── sample.jsonl
+│   │       ├── README.md
+│   │       └── main.py
 │   ├── 02-process/
 │   │   ├── batch/
 │   │   │   ├── README.md

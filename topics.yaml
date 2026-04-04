@@ -19,7 +19,7 @@ topics:
     path: topics/01-load/overview
     readme: topics/01-load/overview/README.md
     entry: topics/01-load/overview/main.py
-    status: planned
+    status: ready
     official_page: Load
     main_idea: Explain the general loading model before diving into individual file-format
       examples.
