@@ -75,6 +75,7 @@ A concrete example folder should not depend on hidden setup in another example f
 
 - Keep code short and direct.
 - Prefer a single entry script such as `main.py` in the example root unless the example genuinely needs more files.
+- Keep the main source file for each subtask at 20 lines or fewer when possible. If that is not practical, keep it at 50 lines or fewer. If that is still not practical, keep it at 100 lines or fewer, and only exceed that when you have no simpler way to preserve the example's teaching goal.
 - Avoid premature abstractions, framework code, and utility modules shared across unrelated examples.
 - Use clear variable names and straightforward control flow.
 - Add comments only when they explain a non-obvious `datasets` behavior.
@@ -150,4 +151,5 @@ If you are an automated coding agent working in this repo:
 - If adding a new example, put code files and `README.md` in the example root, and use `data/` only for local data files.
 - Update `README.md` first when introducing or changing topic paths.
 - If adding code, also add or update the corresponding documentation, including a key-line code explanation section in the example `README.md`.
+- Keep each example's main source file within the line-length limits in this document unless the teaching goal clearly requires more.
 - Prefer the simplest implementation that accurately demonstrates the `datasets` feature.
