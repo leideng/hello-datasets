@@ -30,16 +30,18 @@ hello-datasets/
   load/
     load_dataset/
       from_json/
-        src/
-          main.py
-        docs/
-          README.md
+        main.py
+        README.md
+        data/
+          sample.json
 ```
 
 For every concrete example folder:
 
-- `src/` contains the Python source code.
-- `docs/` contains:
+- put runnable Python source code directly in the example root
+- put the example documentation in a root-level `README.md`
+- keep local test data or sample input files in `data/` when needed
+- `README.md` contains:
   - how to run the code
   - what the example demonstrates
   - short learning notes about the relevant `datasets` feature
@@ -58,8 +60,9 @@ For every concrete example folder:
 
 A good concrete example folder usually includes:
 
-- `src/`
-- `docs/`
+- `main.py` or another small root-level Python file
+- `README.md`
+- optional `data/`
 - optional small local data files only if they are necessary for the example
 
 A concrete example folder should not depend on hidden setup in another example folder.
@@ -67,7 +70,7 @@ A concrete example folder should not depend on hidden setup in another example f
 ## Coding rules
 
 - Keep code short and direct.
-- Prefer a single entry script such as `src/main.py` unless the example genuinely needs more files.
+- Prefer a single entry script such as `main.py` in the example root unless the example genuinely needs more files.
 - Avoid premature abstractions, framework code, and utility modules shared across unrelated examples.
 - Use clear variable names and straightforward control flow.
 - Add comments only when they explain a non-obvious `datasets` behavior.
@@ -75,7 +78,7 @@ A concrete example folder should not depend on hidden setup in another example f
 
 ## Documentation rules
 
-Each feature's `docs/README.md` should usually contain:
+Each feature's root-level `README.md` should usually contain:
 
 - a one-sentence summary of the feature
 - prerequisites
@@ -107,10 +110,11 @@ When adding a new example:
 1. Read the current topic tree in `README.md` first.
 2. Choose the most relevant existing topic path.
 3. Use the root `pyproject.toml` managed with `uv` for dependencies.
-4. Put runnable Python code in `src/`.
-5. Write learning-oriented documentation in `docs/`.
-6. Keep the example independent from other folders.
-7. Verify the documented commands are correct.
+4. Put runnable Python code directly in the example root.
+5. Write learning-oriented documentation in the example's root-level `README.md`.
+6. Use `data/` for local test data or sample files when needed.
+7. Keep the example independent from other folders.
+8. Verify the documented commands are correct.
 
 When modifying an existing example:
 
@@ -138,7 +142,7 @@ If you are an automated coding agent working in this repo:
 - Read the existing directory tree before proposing a new location.
 - Default to creating small, focused, standalone examples.
 - Use `uv` for dependency and run instructions.
-- If adding a new example, include both `src/` and `docs/`.
+- If adding a new example, put code files and `README.md` in the example root, and use `data/` only for local data files.
 - Update `README.md` first when introducing or changing topic paths.
 - If adding code, also add or update the corresponding documentation.
 - Prefer the simplest implementation that accurately demonstrates the `datasets` feature.
